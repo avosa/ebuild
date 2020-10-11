@@ -87,9 +87,9 @@ INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `mobil
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `pName` varchar(100) NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` varchar(11) NOT NULL,
   `description` text NOT NULL,
-  `available` int(11) NOT NULL,
+  `available` varchar(20) NOT NULL,
   `category` varchar(100) NOT NULL,
   `item` varchar(100) NOT NULL,
   `pCode` varchar(20) NOT NULL,
