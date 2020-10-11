@@ -81,20 +81,24 @@ def wrappers(func, *args, **kwargs):
 
 def content_based_filtering(product_id):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM products WHERE id=%s", (product_id,))  # getting id row
+    cur.execute("SELECT * FROM products WHERE id=%s",
+                (product_id,))  # getting id row
     data = cur.fetchone()  # get row info
     data_cat = data['category']  # get id category ex shirt
     print('Showing result for Product Id: ' + product_id)
-    category_matched = cur.execute("SELECT * FROM products WHERE category=%s", (data_cat,))  # get all shirt category
+    category_matched = cur.execute(
+        "SELECT * FROM products WHERE category=%s", (data_cat,))  # get all shirt category
     print('Total product matched: ' + str(category_matched))
     cat_product = cur.fetchall()  # get all row
-    cur.execute("SELECT * FROM product_level WHERE product_id=%s", (product_id,))  # id level info
+    cur.execute("SELECT * FROM product_level WHERE product_id=%s",
+                (product_id,))  # id level info
     id_level = cur.fetchone()
     recommend_id = []
     cate_level = ['v_shape', 'polo', 'clean_text', 'design', 'leather', 'color', 'formal', 'converse', 'loafer', 'hook',
                   'chain']
     for product_f in cat_product:
-        cur.execute("SELECT * FROM product_level WHERE product_id=%s", (product_f['id'],))
+        cur.execute(
+            "SELECT * FROM product_level WHERE product_id=%s", (product_f['id'],))
         f_level = cur.fetchone()
         match_score = 0
         if f_level['product_id'] != int(product_id):
@@ -122,16 +126,20 @@ def index():
     cur = mysql.connection.cursor()
     # Get message
     values = 'tshirt'
-    cur.execute("SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
+    cur.execute(
+        "SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
     tshirt = cur.fetchall()
     values = 'wallet'
-    cur.execute("SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
+    cur.execute(
+        "SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
     wallet = cur.fetchall()
     values = 'belt'
-    cur.execute("SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
+    cur.execute(
+        "SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
     belt = cur.fetchall()
     values = 'shoes'
-    cur.execute("SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
+    cur.execute(
+        "SELECT * FROM products WHERE category=%s ORDER BY RAND() LIMIT 4", (values,))
     shoes = cur.fetchall()
     # Close Connection
     cur.close()
@@ -160,7 +168,8 @@ def login():
         cur = mysql.connection.cursor()
 
         # Get user by username
-        result = cur.execute("SELECT * FROM users WHERE username=%s", [username])
+        result = cur.execute(
+            "SELECT * FROM users WHERE username=%s", [username])
 
         if result > 0:
             # Get stored value
@@ -209,12 +218,14 @@ def logout():
 class RegisterForm(Form):
     name = StringField('', [validators.length(min=3, max=50)],
                        render_kw={'autofocus': True, 'placeholder': 'Full Name'})
-    username = StringField('', [validators.length(min=3, max=25)], render_kw={'placeholder': 'Username'})
+    username = StringField('', [validators.length(min=3, max=25)], render_kw={
+                           'placeholder': 'Username'})
     email = EmailField('', [validators.DataRequired(), validators.Email(), validators.length(min=4, max=25)],
                        render_kw={'placeholder': 'Email'})
     password = PasswordField('', [validators.length(min=3)],
                              render_kw={'placeholder': 'Password'})
-    mobile = StringField('', [validators.length(min=11, max=15)], render_kw={'placeholder': 'Mobile'})
+    mobile = StringField('', [validators.length(min=11, max=15)], render_kw={
+                         'placeholder': 'Mobile'})
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -246,7 +257,8 @@ def register():
 
 
 class MessageForm(Form):  # Create Message Form
-    body = StringField('', [validators.length(min=1)], render_kw={'autofocus': True})
+    body = StringField('', [validators.length(min=1)],
+                       render_kw={'autofocus': True})
 
 
 @app.route('/chatting/<string:id>', methods=['GET', 'POST'])
@@ -310,11 +322,12 @@ class OrderForm(Form):  # Create Order Form
     mobile_num = StringField('', [validators.length(min=1), validators.DataRequired()],
                              render_kw={'autofocus': True, 'placeholder': 'Enter Phone Number'})
     quantity = SelectField('', [validators.DataRequired()],
-                           choices=[('None', 'None'), ('1', '1'), ('2', '2'), ('3', '3'), ('Other', 'Other'),('Inquiry', 'Inquiry')])
+                           choices=[('None', 'None'), ('1', '1'), ('2', '2'), ('3', '3'), ('Other', 'Other'), ('Inquiry', 'Inquiry')])
     order_description = StringField('', [validators.length(min=1), validators.DataRequired()],
-                              render_kw={'placeholder': 'Enter your specifications'})
+                                    render_kw={'placeholder': 'Enter your specifications'})
     order_place = StringField('', [validators.length(min=1), validators.DataRequired()],
                               render_kw={'placeholder': 'Enter city/town '})
+
 
 @app.route('/tshirt', methods=['GET', 'POST'])
 def tshirt():
@@ -323,7 +336,8 @@ def tshirt():
     cur = mysql.connection.cursor()
     # Get message
     values = 'tshirt'
-    cur.execute("SELECT * FROM products WHERE category=%s ORDER BY id ASC", (values,))
+    cur.execute(
+        "SELECT * FROM products WHERE category=%s ORDER BY id ASC", (values,))
     products = cur.fetchall()
     # Close Connection
     cur.close()
@@ -369,7 +383,8 @@ def tshirt():
             uid = session['uid']
             # Create cursor
             cur = mysql.connection.cursor()
-            cur.execute("SELECT * FROM product_view WHERE user_id=%s AND product_id=%s", (uid, product_id))
+            cur.execute(
+                "SELECT * FROM product_view WHERE user_id=%s AND product_id=%s", (uid, product_id))
             result = cur.fetchall()
             if result:
                 now = datetime.datetime.now()
@@ -377,7 +392,8 @@ def tshirt():
                 cur.execute("UPDATE product_view SET date=%s WHERE user_id=%s AND product_id=%s",
                             (now_time, uid, product_id))
             else:
-                cur.execute("INSERT INTO product_view(user_id, product_id) VALUES(%s, %s)", (uid, product_id))
+                cur.execute(
+                    "INSERT INTO product_view(user_id, product_id) VALUES(%s, %s)", (uid, product_id))
                 mysql.connection.commit()
         return render_template('view_product.html', x=x, tshirts=product)
     elif 'order' in request.args:
@@ -397,7 +413,8 @@ def wallet():
     cur = mysql.connection.cursor()
     # Get message
     values = 'wallet'
-    cur.execute("SELECT * FROM products WHERE category=%s ORDER BY id ASC", (values,))
+    cur.execute(
+        "SELECT * FROM products WHERE category=%s ORDER BY id ASC", (values,))
     products = cur.fetchall()
     # Close Connection
     cur.close()
@@ -456,7 +473,8 @@ def belt():
     cur = mysql.connection.cursor()
     # Get message
     values = 'belt'
-    cur.execute("SELECT * FROM products WHERE category=%s ORDER BY id ASC", (values,))
+    cur.execute(
+        "SELECT * FROM products WHERE category=%s ORDER BY id ASC", (values,))
     products = cur.fetchall()
     # Close Connection
     cur.close()
@@ -516,7 +534,8 @@ def shoes():
     cur = mysql.connection.cursor()
     # Get message
     values = 'shoes'
-    cur.execute("SELECT * FROM products WHERE category=%s ORDER BY id ASC", (values,))
+    cur.execute(
+        "SELECT * FROM products WHERE category=%s ORDER BY id ASC", (values,))
     products = cur.fetchall()
     # Close Connection
     cur.close()
@@ -679,12 +698,14 @@ def admin_add_product():
                                  (name, price, description, available, category, item, code, picture))
                     mysql.connection.commit()
                     product_id = curs.lastrowid
-                    curs.execute("INSERT INTO product_level(product_id)" "VALUES(%s)", [product_id])
+                    curs.execute(
+                        "INSERT INTO product_level(product_id)" "VALUES(%s)", [product_id])
                     if category == 'tshirt':
                         level = request.form.getlist('tshirt')
                         for lev in level:
                             yes = 'yes'
-                            query = 'UPDATE product_level SET {field}=%s WHERE product_id=%s'.format(field=lev)
+                            query = 'UPDATE product_level SET {field}=%s WHERE product_id=%s'.format(
+                                field=lev)
                             curs.execute(query, (yes, product_id))
                             # Commit cursor
                             mysql.connection.commit()
@@ -692,7 +713,8 @@ def admin_add_product():
                         level = request.form.getlist('wallet')
                         for lev in level:
                             yes = 'yes'
-                            query = 'UPDATE product_level SET {field}=%s WHERE product_id=%s'.format(field=lev)
+                            query = 'UPDATE product_level SET {field}=%s WHERE product_id=%s'.format(
+                                field=lev)
                             curs.execute(query, (yes, product_id))
                             # Commit cursor
                             mysql.connection.commit()
@@ -700,7 +722,8 @@ def admin_add_product():
                         level = request.form.getlist('belt')
                         for lev in level:
                             yes = 'yes'
-                            query = 'UPDATE product_level SET {field}=%s WHERE product_id=%s'.format(field=lev)
+                            query = 'UPDATE product_level SET {field}=%s WHERE product_id=%s'.format(
+                                field=lev)
                             curs.execute(query, (yes, product_id))
                             # Commit cursor
                             mysql.connection.commit()
@@ -708,7 +731,8 @@ def admin_add_product():
                         level = request.form.getlist('shoes')
                         for lev in level:
                             yes = 'yes'
-                            query = 'UPDATE product_level SET {field}=%s WHERE product_id=%s'.format(field=lev)
+                            query = 'UPDATE product_level SET {field}=%s WHERE product_id=%s'.format(
+                                field=lev)
                             curs.execute(query, (yes, product_id))
                             # Commit cursor
                             mysql.connection.commit()
@@ -739,9 +763,11 @@ def edit_product():
     if 'id' in request.args:
         product_id = request.args['id']
         curso = mysql.connection.cursor()
-        res = curso.execute("SELECT * FROM products WHERE id=%s", (product_id,))
+        res = curso.execute(
+            "SELECT * FROM products WHERE id=%s", (product_id,))
         product = curso.fetchall()
-        curso.execute("SELECT * FROM product_level WHERE product_id=%s", (product_id,))
+        curso.execute(
+            "SELECT * FROM product_level WHERE product_id=%s", (product_id,))
         product_level = curso.fetchall()
         if res:
             if request.method == 'POST':
@@ -862,7 +888,8 @@ def profile():
         result = curso.fetchone()
         if result:
             if result['id'] == session['uid']:
-                curso.execute("SELECT * FROM orders WHERE uid=%s ORDER BY id ASC", (session['uid'],))
+                curso.execute(
+                    "SELECT * FROM orders WHERE uid=%s ORDER BY id ASC", (session['uid'],))
                 res = curso.fetchall()
                 return render_template('profile.html', result=res)
             else:
@@ -883,7 +910,8 @@ class UpdateRegisterForm(Form):
                        render_kw={'placeholder': 'Email'})
     password = PasswordField('Password', [validators.length(min=3)],
                              render_kw={'placeholder': 'Password'})
-    mobile = StringField('Mobile', [validators.length(min=11, max=15)], render_kw={'placeholder': 'Mobile'})
+    mobile = StringField('Mobile', [validators.length(
+        min=11, max=15)], render_kw={'placeholder': 'Mobile'})
 
 
 @app.route('/settings', methods=['POST', 'GET'])
