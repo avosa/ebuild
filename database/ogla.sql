@@ -104,27 +104,27 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `pName`, `price`, `description`, `available`, `category`, `item`, `pCode`, `picture`, `date`) VALUES
-(22, 'Bungalow', 11000000, 'Available in Mombasa, Nairobi and Nakuru', 1000, 'tshirt', 'houses', '1-00w', 'h6.png', '2020-10-11 04:14:54'),
-(23, 'Mwahu Bungalows, Nairobi', 5000000, 'Available in Mombasa, Nairobi and Nakuru', 10000, 'tshirt', 'houses', '1-00Q', 'h4.png', '2020-10-11 04:17:38'),
-(24, 'Nairobi House Painting services', 2000, 'Available in Nairobi County', 300, 'wallet', 'painting', '1-000', 'p2.png', '2020-10-11 05:28:04'),
-(25, 'Cement Additives', 500, 'Boosts performance of cement', 10000, 'belt', 'cement', 'i-pppp', 'e6.png', '2020-10-11 09:15:11'),
-(26, 'Simba Cement', 850, 'Best Cement ever in East Africa and Central Africa', 10000, 'belt', 'cement', '0-ppp1', 'e1.png', '2020-10-11 09:16:31'),
-(28, 'Track for carrying goods bought', 350000, 'The only track youll get for such price', 1000, 'belt', 'Track', '0-6789', 'l8.png', '2020-10-11 09:35:57'),
-(29, 'Cement mixer', 250000, 'Just wow', 10000, 'belt', 'mixer', '0-ijyk', 'e5.png', '2020-10-11 09:37:42'),
-(30, 'Nairobi ample space for all your building', 100000, 'We offer better services and prices ', 1000, 'shoes', 'logistics', '0-6789', 'l1.png', '2020-10-11 09:40:11'),
-(31, 'Land', 670000, 'We offer better services and prices ', 10000, 'shoes', 'land', '0-567', 'l4.png', '2020-10-11 09:41:39'),
-(32, 'Urban ', 350000, 'We offer better services and prices ', 1000, 'shoes', 'log', '0-6789', 'l5.png', '2020-10-11 09:42:47'),
-(33, 'Land', 350000, 'We offer better services and prices ', 10000, 'shoes', 'painting', '74900', 'l5.png', '2020-10-11 09:43:36'),
-(34, 'City painting', 8000, 'We offer better services and prices ', 1000, 'wallet', 'painting', '1-00w', 'p4.png', '2020-10-11 09:45:03'),
-(35, 'painting', 67890, 'We offer better services and prices ', 1000, 'wallet', 'painting', '439361', 'p6.png', '2020-10-11 09:45:53'),
-(36, 'painting', 8000, 'We offer better services and prices ', 10000, 'wallet', 'painting', '0-ijyk', 'p5.png', '2020-10-11 09:46:46'),
-(37, 'painting', 8000, 'We offer good service', 10000, 'wallet', 'painting', '548089', 'p7.png', '2020-10-11 09:51:05'),
-(38, 'Flat', 3500000, 'We offer better service', 10000, 'tshirt', 'flat', '0-6789', 'h4.png', '2020-10-11 09:57:08'),
-(39, 'Flat', 690000, 'We offer better service', 10000, 'tshirt', 'flat', '1-00w', 'h7.png', '2020-10-11 09:57:53'),
-(40, 'Nairobi Estate', 350000, 'We offer better service', 1000, 'tshirt', 'Estate', '439361', 'h3.png', '2020-10-11 09:58:48'),
-(41, 'Nakuru Leisure', 350000, 'We offer better service', 10000, 'tshirt', 'naks', '0-6789', 'h5.png', '2020-10-11 09:59:38'),
-(42, 'Eldoret Richhood', 7000000, 'We offer better service', 10000, 'tshirt', 'eldy', '548089', 'h8.png', '2020-10-11 10:00:52'),
-(43, 'Kericho Homes', 350000, 'We offer better service', 1000, 'tshirt', 'home', '74900', 'h2.png', '2020-10-11 10:02:21');
+(22, 'Bungalow', 11000000, 'Available in Mombasa, Nairobi and Nakuru', 1000, 'house', 'houses', '1-00w', 'h6.png', '2020-10-11 04:14:54'),
+(23, 'Mwahu Bungalows, Nairobi', 5000000, 'Available in Mombasa, Nairobi and Nakuru', 10000, 'house', 'houses', '1-00Q', 'h4.png', '2020-10-11 04:17:38'),
+(24, 'Nairobi House Painting services', 2000, 'Available in Nairobi County', 300, 'painting', 'painting', '1-000', 'p2.png', '2020-10-11 05:28:04'),
+(25, 'Cement Additives', 500, 'Boosts performance of cement', 10000, 'equipment', 'cement', 'i-pppp', 'e6.png', '2020-10-11 09:15:11'),
+(26, 'Simba Cement', 850, 'Best Cement ever in East Africa and Central Africa', 10000, 'equipment', 'cement', '0-ppp1', 'e1.png', '2020-10-11 09:16:31'),
+(28, 'Track for carrying goods bought', 350000, 'The only track youll get for such price', 1000, 'equipment', 'Track', '0-6789', 'l8.png', '2020-10-11 09:35:57'),
+(29, 'Cement mixer', 250000, 'Just wow', 10000, 'equipment', 'mixer', '0-ijyk', 'e5.png', '2020-10-11 09:37:42'),
+(30, 'Nairobi ample space for all your building', 100000, 'We offer better services and prices ', 1000, 'logistics', 'logistics', '0-6789', 'l1.png', '2020-10-11 09:40:11'),
+(31, 'Land', 670000, 'We offer better services and prices ', 10000, 'logistics', 'land', '0-567', 'l4.png', '2020-10-11 09:41:39'),
+(32, 'Urban ', 350000, 'We offer better services and prices ', 1000, 'logistics', 'log', '0-6789', 'l5.png', '2020-10-11 09:42:47'),
+(33, 'Land', 350000, 'We offer better services and prices ', 10000, 'logistics', 'painting', '74900', 'l5.png', '2020-10-11 09:43:36'),
+(34, 'City painting', 8000, 'We offer better services and prices ', 1000, 'painting', 'painting', '1-00w', 'p4.png', '2020-10-11 09:45:03'),
+(35, 'painting', 67890, 'We offer better services and prices ', 1000, 'painting', 'painting', '439361', 'p6.png', '2020-10-11 09:45:53'),
+(36, 'painting', 8000, 'We offer better services and prices ', 10000, 'painting', 'painting', '0-ijyk', 'p5.png', '2020-10-11 09:46:46'),
+(37, 'painting', 8000, 'We offer good service', 10000, 'painting', 'painting', '548089', 'p7.png', '2020-10-11 09:51:05'),
+(38, 'Flat', 3500000, 'We offer better service', 10000, 'houses', 'flat', '0-6789', 'h4.png', '2020-10-11 09:57:08'),
+(39, 'Flat', 690000, 'We offer better service', 10000, 'houses', 'flat', '1-00w', 'h7.png', '2020-10-11 09:57:53'),
+(40, 'Nairobi Estate', 350000, 'We offer better service', 1000, 'houses', 'Estate', '439361', 'h3.png', '2020-10-11 09:58:48'),
+(41, 'Nakuru Leisure', 350000, 'We offer better service', 10000, 'houses', 'naks', '0-6789', 'h5.png', '2020-10-11 09:59:38'),
+(42, 'Eldoret Richhood', 7000000, 'We offer better service', 10000, 'houses', 'eldy', '548089', 'h8.png', '2020-10-11 10:00:52'),
+(43, 'Kericho Homes', 350000, 'We offer better service', 1000, 'houses', 'home', '74900', 'h2.png', '2020-10-11 10:02:21');
 
 -- --------------------------------------------------------
 
