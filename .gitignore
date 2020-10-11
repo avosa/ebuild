@@ -1,2 +1,4 @@
 venv
 .vscode
+# Local Netlify folder
+.netlify
