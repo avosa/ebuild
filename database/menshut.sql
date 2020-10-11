@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Oct 01, 2018 at 04:03 AM
--- Server version: 5.7.21
--- PHP Version: 5.6.35
+-- Host: localhost
+-- Generation Time: Oct 11, 2020 at 03:52 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.3.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shoptubedb`
+-- Database: `menshut`
 --
 
 -- --------------------------------------------------------
@@ -28,9 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
   `firstName` varchar(125) NOT NULL,
   `lastName` varchar(125) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -38,17 +36,15 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `address` text NOT NULL,
   `password` varchar(100) NOT NULL,
   `type` varchar(20) NOT NULL,
-  `confirmCode` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `confirmCode` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `firstName`, `lastName`, `email`, `mobile`, `address`, `password`, `type`, `confirmCode`) VALUES
-(4, 'Nur', 'Mohsin', 'mohsin@gmail.com', '01677876551', 'Dhaka', '$5$rounds=535000$WOAOMdgoK2JpZLY5$RFH9BZQCB3NEvG4R/FofxxJL/PUaeZm7T6G9P3PRg05', 'manager', '0'),
-(6, 'Webster', 'Avosa', 'websterb17@gmail.com', '0717678794', 'Mombasa', '3262', 'manager', '0');
+(6, 'Webster', 'Avosa', 'websterb17@gmail.com', '0717678794', 'Mombasa', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', 'manager', '0');
 
 -- --------------------------------------------------------
 
@@ -56,9 +52,8 @@ INSERT INTO `admin` (`id`, `firstName`, `lastName`, `email`, `mobile`, `address`
 -- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE IF NOT EXISTS `orders` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
   `uid` int(11) DEFAULT NULL,
   `ofname` text NOT NULL,
   `pid` int(11) NOT NULL,
@@ -66,26 +61,22 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `oplace` text NOT NULL,
   `mobile` varchar(15) NOT NULL,
   `dstatus` varchar(10) NOT NULL DEFAULT 'no',
-  `odate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ddate` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `odate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `ddate` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `mobile`, `dstatus`, `odate`, `ddate`) VALUES
-(1, NULL, 'Kashmiri Chador', 1, 2, 'Khilkhet, Dhaka', '01609876543', 'no', '2018-09-21 13:05:07', NULL),
-(2, NULL, 'Nur Mohsin', 1, 3, 'Khilkhet, Dhaka', '01609876543', 'no', '2018-09-21 13:08:55', NULL),
-(3, NULL, 'Nur Mohsin', 2, 4, 'Dhaka', '09876543123', 'no', '2018-09-21 13:13:04', NULL),
-(4, NULL, 'Nur Mohsin', 4, 1, 'Manikganj', '798345', 'no', '2018-09-21 13:18:47', NULL),
-(5, NULL, 'Nur Mohsin', 9, 4, 'Dhaka, Bangladesh', '01609876543', 'no', '2018-09-22 02:01:02', NULL),
-(6, NULL, 'Nur Mohsin', 2, 1, 'Manikganj', '01609876543', 'no', '2018-09-22 02:09:29', NULL),
-(7, 9, 'Nur Mohsin', 2, 1, 'Manikganj', '01609876543', 'no', '2018-09-22 02:10:46', NULL),
-(8, 9, 'Nur Mohsin', 1, 1, 'Manikganj', '0994', 'no', '2018-09-22 03:04:13', NULL),
-(9, 9, 'Kashmiri Chador', 12, 4, 'Dhaka', '01609876543', 'no', '2018-09-22 03:21:14', '2018-09-29'),
-(10, 9, 'Chador', 13, 1, 'Dhaka', '01609876543', 'no', '2018-09-22 03:22:05', '2018-09-29');
+(13, NULL, 'Webster Avosa', 8, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:17:03', '2020-10-18'),
+(14, 17, 'Webster Avosa', 5, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:18:36', '2020-10-18'),
+(15, 17, 'Webster Avosa', 18, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:36:48', '2020-10-18'),
+(16, NULL, 'Webster Avosa', 18, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:38:27', '2020-10-18'),
+(17, NULL, 'Webster Avosa', 4, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:38:44', '2020-10-18'),
+(18, NULL, 'Webster Avosa', 4, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:39:12', '2020-10-18'),
+(19, NULL, 'Webster Avosa', 13, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:39:43', '2020-10-18');
 
 -- --------------------------------------------------------
 
@@ -93,9 +84,8 @@ INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `mobil
 -- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
   `pName` varchar(100) NOT NULL,
   `price` int(11) NOT NULL,
   `description` text NOT NULL,
@@ -104,9 +94,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   `item` varchar(100) NOT NULL,
   `pCode` varchar(20) NOT NULL,
   `picture` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
@@ -140,9 +129,8 @@ INSERT INTO `products` (`id`, `pName`, `price`, `description`, `available`, `cat
 -- Table structure for table `product_level`
 --
 
-DROP TABLE IF EXISTS `product_level`;
-CREATE TABLE IF NOT EXISTS `product_level` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_level` (
+  `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `v_shape` varchar(10) NOT NULL DEFAULT 'no',
   `polo` varchar(10) NOT NULL DEFAULT 'no',
@@ -154,9 +142,8 @@ CREATE TABLE IF NOT EXISTS `product_level` (
   `color` varchar(10) NOT NULL DEFAULT 'no',
   `formal` varchar(10) NOT NULL DEFAULT 'no',
   `converse` varchar(10) NOT NULL DEFAULT 'no',
-  `loafer` varchar(10) NOT NULL DEFAULT 'no',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+  `loafer` varchar(10) NOT NULL DEFAULT 'no'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_level`
@@ -190,14 +177,12 @@ INSERT INTO `product_level` (`id`, `product_id`, `v_shape`, `polo`, `clean_text`
 -- Table structure for table `product_view`
 --
 
-DROP TABLE IF EXISTS `product_view`;
-CREATE TABLE IF NOT EXISTS `product_view` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_view` (
+  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_view`
@@ -211,7 +196,14 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (5, 9, 5, '2018-09-22 03:19:19'),
 (6, 9, 8, '2018-09-21 15:57:50'),
 (7, 9, 6, '2018-09-22 02:12:54'),
-(8, 9, 1, '2018-09-22 03:03:36');
+(8, 9, 1, '2018-09-22 03:03:36'),
+(9, 16, 1, '2020-10-11 00:27:23'),
+(10, 16, 7, '2020-10-11 00:48:48'),
+(11, 16, 9, '2020-10-11 00:48:43'),
+(12, 16, 12, '2020-10-11 00:49:43'),
+(13, 16, 8, '2020-10-11 01:11:30'),
+(14, 17, 5, '2020-10-11 01:35:35'),
+(15, 17, 6, '2020-10-11 01:35:28');
 
 -- --------------------------------------------------------
 
@@ -219,30 +211,105 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(100) NOT NULL,
   `mobile` varchar(20) NOT NULL,
-  `reg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `reg_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `online` varchar(1) NOT NULL DEFAULT '0',
-  `activation` varchar(3) NOT NULL DEFAULT 'yes',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+  `activation` varchar(3) NOT NULL DEFAULT 'yes'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `reg_time`, `online`, `activation`) VALUES
-(12, 'Mukul', 'mukul@gmail.com', 'mukul', '$5$rounds=535000$6PJhbzFlfJbcQbza$FbrPa3qqk1RJ5MSffRLO6LrQJXbgO8SudFuBpNf.wR7', '', '2018-07-23 14:09:14', '0', 'yes'),
-(9, 'Nur Mohsin', 'mohsin@gmail.com', 'mohsin', '$5$rounds=535000$EnLkwqfGWGcWklRL$q9PbYw/TVXSzs.QpgUouZ3.6BzaPG2eLHkTyv.Qx80D', '123456789022', '2018-07-21 06:47:57', '1', 'yes'),
-(14, 'Nur Mohsin', 'khan@gmail.com', 'khan', '$5$rounds=535000$wLKTQexvPQHueUsK$aFrFUXBHjrrAH61EFiYgj8cZECaaz8y6S5XS/zkkHw9', '', '2018-09-07 09:02:35', '0', 'yes'),
-(13, 'Robin', 'robin@gmail.com', 'robin', '$5$rounds=535000$uiZc/VCwwa3XCTTe$Ec.JOjy4GkjpAXHtAvGt6pSc6KszajHgcyZy8v6Ivk1', '', '2018-07-26 12:36:57', '0', 'yes'),
-(15, 'Sujon', 'sujon@yahoo.com', 'sujons', '$5$rounds=535000$aGykDT1yrocgTaDt$p2dDAMDz9g3N6o/Jj7QJY9B6NnMlUot.DCq/LOsCS13', '89345793753', '2018-09-08 13:58:36', '0', 'yes');
+(17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$HwRdAJR3pvq6DAWS$vXFneMZgQpej09PRUeNs5mv0Sc4g1FJ0/VVZBGHpgPA', '+254717678794', '2020-10-11 01:17:39', '1', 'yes'),
+(16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '1', 'yes');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_level`
+--
+ALTER TABLE `product_level`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_view`
+--
+ALTER TABLE `product_view`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `product_level`
+--
+ALTER TABLE `product_level`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `product_view`
+--
+ALTER TABLE `product_view`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
