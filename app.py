@@ -210,7 +210,7 @@ def logout():
         x = '0'
         cur.execute("UPDATE users SET online=%s WHERE id=%s", (x, uid))
         session.clear()
-        flash('You are logged out', 'success')
+        # flash('You are logged out', 'success')
         return redirect(url_for('index'))
     return redirect(url_for('login'))
 
