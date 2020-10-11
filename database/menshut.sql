@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2020 at 03:52 AM
+-- Generation Time: Oct 11, 2020 at 12:12 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -44,7 +44,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `firstName`, `lastName`, `email`, `mobile`, `address`, `password`, `type`, `confirmCode`) VALUES
-(6, 'Webster', 'Avosa', 'websterb17@gmail.com', '0717678794', 'Mombasa', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', 'manager', '0');
+(6, 'Webster', 'Avosa', 'websterb17@gmail.com', '0717678794', 'Mombasa', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', 'manager', '0'),
+(8, 'Ogla', 'Biwott', 'oglabiwott21@gmail.com', '0790358339', 'Nairobi', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', 'manager', '0');
 
 -- --------------------------------------------------------
 
@@ -70,13 +71,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `mobile`, `dstatus`, `odate`, `ddate`) VALUES
-(13, NULL, 'Webster Avosa', 8, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:17:03', '2020-10-18'),
-(14, 17, 'Webster Avosa', 5, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:18:36', '2020-10-18'),
-(15, 17, 'Webster Avosa', 18, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:36:48', '2020-10-18'),
-(16, NULL, 'Webster Avosa', 18, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:38:27', '2020-10-18'),
-(17, NULL, 'Webster Avosa', 4, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:38:44', '2020-10-18'),
-(18, NULL, 'Webster Avosa', 4, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:39:12', '2020-10-18'),
-(19, NULL, 'Webster Avosa', 13, 'None', 'Mombasa ', '+254717678794', 'no', '2020-10-11 01:39:43', '2020-10-18');
+(20, NULL, 'Ogla Biwott', 22, 'Inquiry', 'Nairobi', '+254717678794', 'no', '2020-10-11 05:37:42', '2020-10-18'),
+(21, NULL, 'Ogla Biwott', 23, 'Inquiry', 'Nairobi', '+254717678794', 'no', '2020-10-11 05:44:33', '2020-10-18'),
+(22, 17, 'Ogla Biwott', 23, 'Other', 'Mombasa ', '+254717678794', 'no', '2020-10-11 07:38:57', '2020-10-18'),
+(23, NULL, 'Webster Avosa', 23, 'Other', 'Mombasa ', '+254717678794', 'no', '2020-10-11 09:02:26', '2020-10-18');
 
 -- --------------------------------------------------------
 
@@ -87,9 +85,9 @@ INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `mobil
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `pName` varchar(100) NOT NULL,
-  `price` varchar(11) NOT NULL,
+  `price` int(15) NOT NULL,
   `description` text NOT NULL,
-  `available` varchar(20) NOT NULL,
+  `available` int(11) NOT NULL,
   `category` varchar(100) NOT NULL,
   `item` varchar(100) NOT NULL,
   `pCode` varchar(20) NOT NULL,
@@ -102,26 +100,27 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `pName`, `price`, `description`, `available`, `category`, `item`, `pCode`, `picture`, `date`) VALUES
-(1, 'T-Shirt', 120, 'T-Shirt', 4, 'tshirt', 't-shirt', 't-007', 'MSTS14738.jpg', '2018-09-20 07:10:40'),
-(2, 'Baborry wallet', 6000, 'Baborry-Double-Zipper-Coin-Bag-RFID-Blocking-Men-Wallets-New-Brand-PU-Leather-Wallet-Money-Purses', 3, 'wallet', 'wallet', 'w-004', 'IMG_1212.jpg', '2018-09-20 07:40:28'),
-(3, 'Loafer Shoes', 2000, 'Loafer black shoes', 8, 'shoes', 'shoes', 's-001', '8544789_5_.jpg', '2018-09-20 08:33:57'),
-(4, 'Artificial Belt', 1200, 'Black artificial belt', 9, 'belt', 'belt', 'b-001', '0283BLT.jpg', '2018-09-20 08:35:44'),
-(5, 'Polo T-shirt', 500, 'Polo t-shirt', 10, 'tshirt', 't-shirt', 's-002', 'lp00-2.jpg', '2018-09-20 08:40:06'),
-(6, 'T-shirt', 300, 'Polo colorful t-shirt', 12, 'tshirt', 't-shirt', 't-003', 'yellow_2_.jpg', '2018-09-20 08:41:18'),
-(7, 'Tshirt', 200, 'Design t-shirt', 10, 'tshirt', 't-shirt', 't-004', 'MSTSV14042.jpg', '2018-09-20 08:42:11'),
-(8, 'T-shirt', 200, 'Color t-shirt', 20, 'tshirt', 't-shirt', 't-005', 'MSTS14759.jpg', '2018-09-20 08:45:39'),
-(9, 'Men\'s Tshirt', 500, 'Colorful men\'s t-shirt', 20, 'tshirt', 't-shirt', 't-006', 'MSTSV14046.jpg', '2018-09-20 08:57:07'),
-(10, 'Sports tshirt', 1000, 'Real madrid t-shirt', 5, 'tshirt', 't-shirt', 't-007', 'MSTSV14039.jpg', '2018-09-20 08:58:38'),
-(12, 'T-shirt', 300, 'Design t-shirt', 10, 'tshirt', 't-shirt', 't-010', 'MSTSV14049.jpg', '2018-09-20 09:02:04'),
-(13, 'Leather Shoes', 2000, 'Best leather shoes', 10, 'shoes', 'shoes', 's-002', '8546789_5_.jpg', '2018-09-21 10:39:32'),
-(14, 'Belt', 2000, 'Nice belt', 20, 'belt', 'belt', 'b-003', 'gbdl18_1.png', '2018-10-01 03:47:08'),
-(15, 'Belt', 300, 'Nice one belt', 20, 'belt', 'belt', 'b-004', '101010_1_.jpg', '2018-10-01 03:48:09'),
-(16, 'Mens Belt', 300, 'Mens belt', 15, 'belt', 'belt', 'b-005', 'image4_2.jpg', '2018-10-01 03:49:08'),
-(17, 'Leather Wallet', 100, 'Leather wallet', 10, 'wallet', 'wallet', 'w-005', 'Baborry-Double-Zipper-Coin-Bag-RFID-Blocking-Men-Wallets-New-Brand-PU-Leather-Wallet-Money-Purses.jpg_640x640.jpg', '2018-10-01 03:51:52'),
-(18, 'Wallet', 300, 'Wallet', 20, 'wallet', 'wallet', 'w-007', '1881_G.jpg', '2018-10-01 03:52:43'),
-(19, 'Black walllet', 300, 'Black mens wallet', 20, 'wallet', 'wallet', 'w-009', 'image5_1_2.jpg', '2018-10-01 03:53:37'),
-(20, 'Men\'s Shoes', 1200, 'Men\'s shoes', 23, 'shoes', 'shoes', 's-003', 'IMG_2429.jpg', '2018-10-01 03:56:41'),
-(21, 'Shoes', 2000, 'Formal Shoes', 12, 'shoes', 'shoes', 's-004', 'G51A7054.jpg', '2018-10-01 03:57:24');
+(22, 'Bungalow', 11000000, 'Available in Mombasa, Nairobi and Nakuru', 1000, 'tshirt', 'houses', '1-00w', 'h6.png', '2020-10-11 04:14:54'),
+(23, 'Mwahu Bungalows, Nairobi', 5000000, 'Available in Mombasa, Nairobi and Nakuru', 10000, 'tshirt', 'houses', '1-00Q', 'h1.png', '2020-10-11 04:17:38'),
+(24, 'Nairobi House Painting services', 2000, 'Available in Nairobi County', 300, 'wallet', 'painting', '1-000', 'p2.png', '2020-10-11 05:28:04'),
+(25, 'Cement Additives', 500, 'Boosts performance of cement', 10000, 'belt', 'cement', 'i-pppp', 'e6.png', '2020-10-11 09:15:11'),
+(26, 'Simba Cement', 850, 'Best Cement ever in East Africa and Central Africa', 10000, 'belt', 'cement', '0-ppp1', 'e1.png', '2020-10-11 09:16:31'),
+(28, 'Track for carrying goods bought', 350000, 'The only track youll get for such price', 1000, 'belt', 'Track', '0-6789', 'l8.png', '2020-10-11 09:35:57'),
+(29, 'Cement mixer', 250000, 'Just wow', 10000, 'belt', 'mixer', '0-ijyk', 'e5.png', '2020-10-11 09:37:42'),
+(30, 'Nairobi ample space for all your building', 100000, 'We offer better services and prices ', 1000, 'shoes', 'logistics', '0-6789', 'l1.png', '2020-10-11 09:40:11'),
+(31, 'Land', 670000, 'We offer better services and prices ', 10000, 'shoes', 'land', '0-567', 'l4.png', '2020-10-11 09:41:39'),
+(32, 'Urban ', 350000, 'We offer better services and prices ', 1000, 'shoes', 'log', '0-6789', 'l5.png', '2020-10-11 09:42:47'),
+(33, 'Land', 350000, 'We offer better services and prices ', 10000, 'shoes', 'painting', '74900', 'l5.png', '2020-10-11 09:43:36'),
+(34, 'City painting', 8000, 'We offer better services and prices ', 1000, 'wallet', 'painting', '1-00w', 'p4.png', '2020-10-11 09:45:03'),
+(35, 'painting', 67890, 'We offer better services and prices ', 1000, 'wallet', 'painting', '439361', 'p6.png', '2020-10-11 09:45:53'),
+(36, 'painting', 8000, 'We offer better services and prices ', 10000, 'wallet', 'painting', '0-ijyk', 'p5.png', '2020-10-11 09:46:46'),
+(37, 'painting', 8000, 'We offer good service', 10000, 'wallet', 'painting', '548089', 'p7.png', '2020-10-11 09:51:05'),
+(38, 'Flat', 3500000, 'We offer better service', 10000, 'tshirt', 'flat', '0-6789', 'h4.png', '2020-10-11 09:57:08'),
+(39, 'Flat', 690000, 'We offer better service', 10000, 'tshirt', 'flat', '1-00w', 'h7.png', '2020-10-11 09:57:53'),
+(40, 'Nairobi Estate', 350000, 'We offer better service', 1000, 'tshirt', 'Estate', '439361', 'h3.png', '2020-10-11 09:58:48'),
+(41, 'Nakuru Leisure', 350000, 'We offer better service', 10000, 'tshirt', 'naks', '0-6789', 'h5.png', '2020-10-11 09:59:38'),
+(42, 'Eldoret Richhood', 7000000, 'We offer better service', 10000, 'tshirt', 'eldy', '548089', 'h8.png', '2020-10-11 10:00:52'),
+(43, 'Kericho Homes', 350000, 'We offer better service', 1000, 'tshirt', 'home', '74900', 'h2.png', '2020-10-11 10:02:21');
 
 -- --------------------------------------------------------
 
@@ -150,26 +149,28 @@ CREATE TABLE `product_level` (
 --
 
 INSERT INTO `product_level` (`id`, `product_id`, `v_shape`, `polo`, `clean_text`, `design`, `chain`, `leather`, `hook`, `color`, `formal`, `converse`, `loafer`) VALUES
-(1, 1, 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(2, 2, 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no'),
-(3, 3, 'no', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'yes'),
-(4, 4, 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'no', 'no'),
-(5, 5, 'no', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(6, 6, 'no', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(7, 7, 'yes', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(8, 8, 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(9, 9, 'yes', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(10, 10, 'yes', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(14, 14, 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'no', 'no'),
-(12, 12, 'yes', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(13, 13, 'no', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'yes'),
-(15, 15, 'no', 'no', 'no', 'no', 'no', 'yes', 'no', 'yes', 'no', 'no', 'no'),
-(16, 16, 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no'),
-(17, 17, 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no'),
-(18, 18, 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no'),
-(19, 19, 'no', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no'),
-(20, 20, 'no', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'no', 'yes', 'no'),
-(21, 21, 'no', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'yes', 'no', 'no');
+(41, 41, 'no', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(40, 40, 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(39, 39, 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(38, 38, 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(37, 37, 'no', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no'),
+(36, 36, 'no', 'no', 'no', 'yes', 'no', 'yes', 'no', 'no', 'no', 'no', 'no'),
+(35, 35, 'no', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no'),
+(34, 34, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(33, 33, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'no'),
+(32, 32, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'no'),
+(31, 31, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'yes'),
+(30, 30, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'no'),
+(29, 29, 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'no', 'no'),
+(28, 28, 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'no', 'no'),
+(27, 27, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(26, 26, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(25, 25, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(24, 24, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(23, 23, 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(22, 22, 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(42, 42, 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(43, 43, 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -189,21 +190,11 @@ CREATE TABLE `product_view` (
 --
 
 INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
-(1, 9, 9, '2018-09-22 02:19:30'),
-(2, 9, 7, '2018-09-27 02:47:43'),
-(3, 9, 12, '2018-09-22 03:20:59'),
-(4, 9, 10, '2018-09-29 03:07:11'),
-(5, 9, 5, '2018-09-22 03:19:19'),
-(6, 9, 8, '2018-09-21 15:57:50'),
-(7, 9, 6, '2018-09-22 02:12:54'),
-(8, 9, 1, '2018-09-22 03:03:36'),
-(9, 16, 1, '2020-10-11 00:27:23'),
-(10, 16, 7, '2020-10-11 00:48:48'),
-(11, 16, 9, '2020-10-11 00:48:43'),
-(12, 16, 12, '2020-10-11 00:49:43'),
-(13, 16, 8, '2020-10-11 01:11:30'),
-(14, 17, 5, '2020-10-11 01:35:35'),
-(15, 17, 6, '2020-10-11 01:35:28');
+(23, 17, 38, '2020-10-11 10:04:00'),
+(22, 17, 39, '2020-10-11 10:03:56'),
+(21, 17, 43, '2020-10-11 10:03:59'),
+(20, 17, 22, '2020-10-11 09:03:13'),
+(19, 17, 23, '2020-10-11 09:10:42');
 
 -- --------------------------------------------------------
 
@@ -228,7 +219,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `reg_time`, `online`, `activation`) VALUES
-(17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$HwRdAJR3pvq6DAWS$vXFneMZgQpej09PRUeNs5mv0Sc4g1FJ0/VVZBGHpgPA', '+254717678794', '2020-10-11 01:17:39', '1', 'yes'),
+(18, 'Webster Avosa', 'websterb17@gmail.com', 'oliver', '$5$rounds=535000$E0HQowc2zLCgdKb1$XovakzspbTqvyg1znchuAvkQZo/rvcXMlu8Z5C6jnu3', '+254717678794', '2020-10-11 02:50:33', '0', 'yes'),
+(17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$sdv0V4gY8LU9xnQE$/Ku3gEwbNlureqVT/2hP9CxAlZutVVkNJlNzmnGQrAD', '+254717678794', '2020-10-11 01:17:39', '1', 'yes'),
 (16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '1', 'yes');
 
 --
@@ -279,37 +271,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `product_level`
 --
 ALTER TABLE `product_level`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `product_view`
 --
 ALTER TABLE `product_view`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
