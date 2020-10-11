@@ -4,6 +4,7 @@ apt-clone==0.2.1
 apturl==0.5.2
 asgiref==3.2.10
 astroid==2.4.2
+autopep8==1.5.4
 bcrypt==3.2.0
 beautifulsoup4==4.8.2
 blinker==1.4
@@ -74,6 +75,7 @@ protobuf==3.6.1
 psutil==5.5.1
 py3-validate-email==0.2.9
 pycairo==1.16.2
+pycodestyle==2.6.0
 pycparser==2.20
 pycrypto==2.6.1
 pycups==1.9.73
