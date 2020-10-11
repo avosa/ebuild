@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2020 at 05:28 PM
+-- Generation Time: Oct 11, 2020 at 07:49 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `menshut`
+-- Database: `ogla`
 --
 
 -- --------------------------------------------------------
@@ -105,7 +105,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `pName`, `price`, `description`, `available`, `category`, `item`, `pCode`, `picture`, `date`) VALUES
 (22, 'Bungalow', 11000000, 'Available in Mombasa, Nairobi and Nakuru', 1000, 'tshirt', 'houses', '1-00w', 'h6.png', '2020-10-11 04:14:54'),
-(23, 'Mwahu Bungalows, Nairobi', 5000000, 'Available in Mombasa, Nairobi and Nakuru', 10000, 'tshirt', 'houses', '1-00Q', 'h1.png', '2020-10-11 04:17:38'),
+(23, 'Mwahu Bungalows, Nairobi', 5000000, 'Available in Mombasa, Nairobi and Nakuru', 10000, 'tshirt', 'houses', '1-00Q', 'h4.png', '2020-10-11 04:17:38'),
 (24, 'Nairobi House Painting services', 2000, 'Available in Nairobi County', 300, 'wallet', 'painting', '1-000', 'p2.png', '2020-10-11 05:28:04'),
 (25, 'Cement Additives', 500, 'Boosts performance of cement', 10000, 'belt', 'cement', 'i-pppp', 'e6.png', '2020-10-11 09:15:11'),
 (26, 'Simba Cement', 850, 'Best Cement ever in East Africa and Central Africa', 10000, 'belt', 'cement', '0-ppp1', 'e1.png', '2020-10-11 09:16:31'),
@@ -203,11 +203,11 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (26, 19, 38, '2020-10-11 10:48:30'),
 (25, 19, 39, '2020-10-11 13:11:32'),
 (24, 19, 43, '2020-10-11 10:48:31'),
-(23, 17, 38, '2020-10-11 10:04:00'),
-(22, 17, 39, '2020-10-11 10:03:56'),
+(23, 17, 38, '2020-10-11 17:44:24'),
+(22, 17, 39, '2020-10-11 17:44:21'),
 (21, 17, 43, '2020-10-11 10:03:59'),
-(20, 17, 22, '2020-10-11 09:03:13'),
-(19, 17, 23, '2020-10-11 09:10:42');
+(20, 17, 22, '2020-10-11 17:46:49'),
+(19, 17, 23, '2020-10-11 17:45:07');
 
 -- --------------------------------------------------------
 
@@ -233,7 +233,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `reg_time`, `online`, `activation`) VALUES
 (20, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$z7w9uYgwfbok1kGx$aabqsubMn8DGJENHWXDIaKjGqqgiQ53xbXx8kNbecoD', '+254790123879', '2020-10-11 10:50:27', '0', 'yes'),
-(17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$sdv0V4gY8LU9xnQE$/Ku3gEwbNlureqVT/2hP9CxAlZutVVkNJlNzmnGQrAD', '+254717678794', '2020-10-11 01:17:39', '0', 'yes'),
+(17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$sdv0V4gY8LU9xnQE$/Ku3gEwbNlureqVT/2hP9CxAlZutVVkNJlNzmnGQrAD', '+254717678794', '2020-10-11 01:17:39', '1', 'yes'),
 (16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '1', 'yes'),
 (21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'oglabiwott21@gmail.com', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes');
 
