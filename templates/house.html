@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
-<!-- Page Content -->
+<!-- House Section -->
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
@@ -12,7 +12,8 @@
                 <a href="/logistics" class="list-group-item">Logistics</a>
             </div>
         </div>
-        <!-- /.col-lg-3 -->
+
+        <!-- Advert carousel -->
         <div class="col-lg-9">
             {% include 'includes/_flashmsg.html' %}
             <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -46,6 +47,7 @@
                 </a>
             </div>
 
+            <!-- Products under houses section -->
             <div class="row">
                 {% for product in house %}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
