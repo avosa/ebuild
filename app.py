@@ -224,7 +224,7 @@ class RegisterForm(Form):
                        render_kw={'placeholder': 'Email'})
     password = PasswordField('', [validators.length(min=3)],
                              render_kw={'placeholder': 'Password'})
-    mobile = StringField('', [validators.length(min=11, max=15)], render_kw={
+    mobile = StringField('', [validators.length(min=10, max=15)], render_kw={
                          'placeholder': 'Mobile'})
 
 
@@ -911,7 +911,7 @@ class UpdateRegisterForm(Form):
     password = PasswordField('Password', [validators.length(min=3)],
                              render_kw={'placeholder': 'Password'})
     mobile = StringField('Mobile', [validators.length(
-        min=11, max=15)], render_kw={'placeholder': 'Mobile'})
+        min=10, max=15)], render_kw={'placeholder': 'Mobile'})
 
 
 @app.route('/settings', methods=['POST', 'GET'])
