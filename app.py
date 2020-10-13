@@ -742,7 +742,7 @@ def admin_add_product():
                     # Close Connection
                     curs.close()
 
-                    flash('Product added successful', 'success')
+                    flash('Product added successfully', 'success')
                     return redirect(url_for('admin_add_product'))
                 else:
                     flash('Picture not save', 'danger')
