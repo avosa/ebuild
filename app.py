@@ -250,7 +250,7 @@ def register():
         # Close Connection
         cur.close()
 
-        flash('You are now registered and can now login!', 'success')
+        flash('You are now registered and can login', 'success')
 
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
