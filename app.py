@@ -261,61 +261,6 @@ class MessageForm(Form):  # Create Message Form
                        render_kw={'autofocus': True})
 
 
-@app.route('/chatting/<string:id>', methods=['GET', 'POST'])
-def chatting(id):
-    if 'uid' in session:
-        form = MessageForm(request.form)
-        # Create cursor
-        cur = mysql.connection.cursor()
-
-        # lid name
-        get_result = cur.execute("SELECT * FROM users WHERE id=%s", [id])
-        l_data = cur.fetchone()
-        if get_result > 0:
-            session['name'] = l_data['name']
-            uid = session['uid']
-            session['lid'] = id
-
-            if request.method == 'POST' and form.validate():
-                txt_body = form.body.data
-                # Create cursor
-                cur = mysql.connection.cursor()
-                cur.execute("INSERT INTO messages(body, msg_by, msg_to) VALUES(%s, %s, %s)",
-                            (txt_body, id, uid))
-                # Commit cursor
-                mysql.connection.commit()
-
-            # Get users
-            cur.execute("SELECT * FROM users")
-            users = cur.fetchall()
-
-            # Close Connection
-            cur.close()
-            return render_template('chat_room.html', users=users, form=form)
-        else:
-            flash('No permission!', 'danger')
-            return redirect(url_for('index'))
-    else:
-        return redirect(url_for('login'))
-
-
-@app.route('/chats', methods=['GET', 'POST'])
-def chats():
-    if 'lid' in session:
-        id = session['lid']
-        uid = session['uid']
-        # Create cursor
-        cur = mysql.connection.cursor()
-        # Get message
-        cur.execute("SELECT * FROM messages WHERE (msg_by=%s AND msg_to=%s) OR (msg_by=%s AND msg_to=%s) "
-                    "ORDER BY id ASC", (id, uid, uid, id))
-        chats = cur.fetchall()
-        # Close Connection
-        cur.close()
-        return render_template('chats.html', chats=chats, )
-    return redirect(url_for('login'))
-
-
 class OrderForm(Form):  # Create Order Form
     name = StringField('', [validators.length(min=1), validators.DataRequired()],
                        render_kw={'autofocus': True, 'placeholder': 'Enter Full Name'})
@@ -368,7 +313,8 @@ def house():
         # Close Connection
         cur.close()
 
-        flash('Request submitted succefully, an expert will contact you shortly', 'success')
+        flash(
+            'Request submitted successfully, an expert will contact you shortly', 'success')
         return render_template('house.html', house=products, form=form)
     if 'view' in request.args:
         product_id = request.args['view']
@@ -955,26 +901,6 @@ def settings():
 class DeveloperForm(Form):  #
     id = StringField('', [validators.length(min=1)],
                      render_kw={'placeholder': 'Input a product id...'})
-
-
-@app.route('/developer', methods=['POST', 'GET'])
-def developer():
-    form = DeveloperForm(request.form)
-    if request.method == 'POST' and form.validate():
-        q = form.id.data
-        curso = mysql.connection.cursor()
-        result = curso.execute("SELECT * FROM products WHERE id=%s", (q,))
-        if result > 0:
-            x = content_based_filtering(q)
-            wrappered = wrappers(content_based_filtering, q)
-            execution_time = timeit.timeit(wrappered, number=0)
-            seconds = ((execution_time / 1000) % 60)
-            return render_template('developer.html', form=form, x=x, execution_time=seconds)
-        else:
-            nothing = 'Nothing found'
-            return render_template('developer.html', form=form, nothing=nothing)
-    else:
-        return render_template('developer.html', form=form)
 
 
 if __name__ == '__main__':
