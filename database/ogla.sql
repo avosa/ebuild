@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2020 at 07:49 PM
+-- Generation Time: Oct 18, 2020 at 01:57 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ogla`
+-- Database: `bi`
 --
 
 -- --------------------------------------------------------
@@ -113,18 +113,14 @@ INSERT INTO `products` (`id`, `pName`, `price`, `description`, `available`, `cat
 (29, 'Cement mixer', 250000, 'Just wow', 10000, 'equipment', 'mixer', '0-ijyk', 'e5.png', '2020-10-11 09:37:42'),
 (30, 'Nairobi ample space for all your building', 100000, 'We offer better services and prices ', 1000, 'logistics', 'logistics', '0-6789', 'l1.png', '2020-10-11 09:40:11'),
 (31, 'Land', 670000, 'We offer better services and prices ', 10000, 'logistics', 'land', '0-567', 'l4.png', '2020-10-11 09:41:39'),
-(32, 'Urban ', 350000, 'We offer better services and prices ', 1000, 'logistics', 'log', '0-6789', 'l5.png', '2020-10-11 09:42:47'),
-(33, 'Land', 350000, 'We offer better services and prices ', 10000, 'logistics', 'painting', '74900', 'l5.png', '2020-10-11 09:43:36'),
+(32, 'Urban ', 350000, 'We offer better services and prices ', 1000, 'logistics', 'log', '0-6789', 'l7.png', '2020-10-11 09:42:47'),
+(33, 'Land', 350000, 'We offer better services and prices ', 10000, 'logistics', 'painting', '74900', 'l1.png', '2020-10-11 09:43:36'),
 (34, 'City painting', 8000, 'We offer better services and prices ', 1000, 'painting', 'painting', '1-00w', 'p4.png', '2020-10-11 09:45:03'),
 (35, 'painting', 67890, 'We offer better services and prices ', 1000, 'painting', 'painting', '439361', 'p6.png', '2020-10-11 09:45:53'),
 (36, 'painting', 8000, 'We offer better services and prices ', 10000, 'painting', 'painting', '0-ijyk', 'p5.png', '2020-10-11 09:46:46'),
 (37, 'painting', 8000, 'We offer good service', 10000, 'painting', 'painting', '548089', 'p7.png', '2020-10-11 09:51:05'),
-(38, 'Flat', 3500000, 'We offer better service', 10000, 'houses', 'flat', '0-6789', 'h4.png', '2020-10-11 09:57:08'),
-(39, 'Flat', 690000, 'We offer better service', 10000, 'houses', 'flat', '1-00w', 'h7.png', '2020-10-11 09:57:53'),
-(40, 'Nairobi Estate', 350000, 'We offer better service', 1000, 'houses', 'Estate', '439361', 'h3.png', '2020-10-11 09:58:48'),
-(41, 'Nakuru Leisure', 350000, 'We offer better service', 10000, 'houses', 'naks', '0-6789', 'h5.png', '2020-10-11 09:59:38'),
-(42, 'Eldoret Richhood', 7000000, 'We offer better service', 10000, 'houses', 'eldy', '548089', 'h8.png', '2020-10-11 10:00:52'),
-(43, 'Kericho Homes', 350000, 'We offer better service', 1000, 'houses', 'home', '74900', 'h2.png', '2020-10-11 10:02:21');
+(44, 'Flat', 20000000, 'Flat in Nakuru ', 10000, 'house', 'houses', '0-1234', 'h7.png', '2020-10-17 23:54:33'),
+(45, 'Palace Square and Co Builds', 3500000, 'Want a palace, we will construct one for you!', 10000, 'house', 'houses', '1-000', 'h2.png', '2020-10-17 23:56:09');
 
 -- --------------------------------------------------------
 
@@ -174,7 +170,9 @@ INSERT INTO `product_level` (`id`, `product_id`, `v_shape`, `polo`, `clean_text`
 (23, 23, 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
 (22, 22, 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
 (42, 42, 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(43, 43, 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no');
+(43, 43, 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(44, 44, 'no', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(45, 45, 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -206,8 +204,66 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (23, 17, 38, '2020-10-11 17:44:24'),
 (22, 17, 39, '2020-10-11 17:44:21'),
 (21, 17, 43, '2020-10-11 10:03:59'),
-(20, 17, 22, '2020-10-11 17:46:49'),
-(19, 17, 23, '2020-10-11 17:45:07');
+(20, 17, 22, '2020-10-17 23:56:22'),
+(19, 17, 23, '2020-10-17 23:56:26'),
+(33, 17, 45, '2020-10-17 23:56:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `UserRating`
+--
+
+CREATE TABLE `UserRating` (
+  `firstName` varchar(125) NOT NULL,
+  `ratingMessage` varchar(125) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `UserRating`
+--
+
+INSERT INTO `UserRating` (`firstName`, `ratingMessage`) VALUES
+('Webster', 'poor'),
+('Webster', 'Good'),
+('Webster', 'Good'),
+('Dennis', 'Average'),
+('Webster', 'Good'),
+('', ''),
+('', ''),
+('', ''),
+('', ''),
+('', ''),
+('', ''),
+('', ''),
+('Webster', 'Good'),
+('Webster', 'Good'),
+('Webster', 'Good'),
+('Webster', 'Good'),
+('Webster', 'Good'),
+('Webster', 'Good'),
+('', ''),
+('', ''),
+('', ''),
+('', ''),
+('Webster', 'Good'),
+('Einz', 'Good'),
+('Einz', 'poor'),
+('Einz', 'Good'),
+('Webster', 'Good'),
+('Einz', 'poor'),
+('Einz', 'poor'),
+('Webster', 'Average'),
+('Webster', 'Average'),
+('James', 'poor'),
+('Einz', 'Good'),
+('Einz', 'Good'),
+('Einz', 'Good'),
+('Webster', 'Good'),
+('Webster', 'Good'),
+('Webster', 'Good'),
+('Webster', 'Average'),
+('Webster', 'Above Expectations');
 
 -- --------------------------------------------------------
 
@@ -231,22 +287,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-
-
-
-CREATE TABLE `UserRating` (
-  `firstName` varchar(125) NOT NULL,
-  `ratingMessage` varchar(125) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-
-
-
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `reg_time`, `online`, `activation`) VALUES
 (20, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$z7w9uYgwfbok1kGx$aabqsubMn8DGJENHWXDIaKjGqqgiQ53xbXx8kNbecoD', '+254790123879', '2020-10-11 10:50:27', '0', 'yes'),
-(17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$sdv0V4gY8LU9xnQE$/Ku3gEwbNlureqVT/2hP9CxAlZutVVkNJlNzmnGQrAD', '+254717678794', '2020-10-11 01:17:39', '1', 'yes'),
+(17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$Zmy71Ror1yIJpsn2$uqMqPgBVp302eAZU4KuBOg/2SHiAj8fFVvZ/UUq1YV8', '+254717678794', '2020-10-11 01:17:39', '1', 'yes'),
 (16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '1', 'yes'),
 (21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'oglabiwott21@gmail.com', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes');
 
@@ -310,19 +353,19 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `product_level`
 --
 ALTER TABLE `product_level`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `product_view`
 --
 ALTER TABLE `product_view`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
