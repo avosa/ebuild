@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Rate Experience</h1>
+        {% include 'includes/_flashmsg.html' %}
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<form method="POST" action="">
+    <center> 
+    <div style="padding-bottom: 4px;">
+        <label for="id3u">Full Name</label>
+        <input type = "text" name= "fname" placeholder="eg Ogla" required /> 
+    </div>
+    <div style="padding-top: 4px;">
+        <label for="id4u">Feedback</label>
+        <input type = "text" name = "rmessage" placeholder="Good" required /> 
+    </div>
+    <a href="/view_product">
+        <input style="background-color:  rgb(236, 54, 236); color: white;" type = "submit">
+    </a>
+    </center>
+</form>
+
+
+
+{% endblock %}

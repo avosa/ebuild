@@ -35,8 +35,57 @@
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+                
                 <!-- /.card -->
+
+
+             <!-- /.ratings -->
+             <div class="col-lg-6">
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Rate Product/Service
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ product.pName}}</h3>
+                        <a href="rating" class="btn btn-success" style="background-color: rgb(236, 54, 236);">Rate</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- /.ratings -->   
+            
+            <!-- /.clients ratings -->
+            <div class="col-lg-6">
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        What other clients say
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ product.pName}}</h3>
+                    </div>
+                   <table>
+                       <thead>
+                           <tr>
+                               <th>First Name</th>
+                               <th>Rating</th>
+                           </tr>
+
+                       </thead>
+                       <tbody>
+                           {% for item in data %}
+                           <tr>
+                               <td>{{item[0]}}</td>
+                               <td>{{item[1]}}</td>
+                           </tr>
+                           {% endfor %}
+                       </tbody>
+                   </table>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- /.ratings -->  
+
+
 
             </div>
             {% if x == '' %}

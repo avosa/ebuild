@@ -1,6 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from flask_mysqldb import MySQL
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators, SelectField
+from wtforms import Form, StringField, TextField, TextAreaField, PasswordField, validators, SelectField
 from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_uploads import UploadSet, configure_uploads, IMAGES
@@ -268,8 +268,8 @@ class OrderForm(Form):  # Create Order Form
                              render_kw={'autofocus': True, 'placeholder': 'Enter Phone Number'})
     quantity = SelectField('', [validators.DataRequired()],
                            choices=[('None', 'None'), ('1', '1'), ('2', '2'), ('3', '3'), ('Other', 'Other'), ('Inquiry', 'Inquiry')])
-    order_description = StringField('', [validators.length(min=1), validators.DataRequired()],
-                                    render_kw={'placeholder': 'Enter your specifications'})
+    order_description = TextField('', [validators.length(min=1), validators.DataRequired()],
+                                  render_kw={'placeholder': 'Enter your specifications'})
     order_place = StringField('', [validators.length(min=1), validators.DataRequired()],
                               render_kw={'placeholder': 'Enter city/town '})
 
@@ -350,6 +350,14 @@ def house():
         x = content_based_filtering(product_id)
         return render_template('order_product.html', x=x, houses=product, form=form)
     return render_template('house.html', house=products, form=form)
+
+
+@app.route('/view_product')
+def view_product():
+    cur = con.cursor()
+    cur.execute("select * from UserRating")
+    data = cur.fetchall()
+    return render_template('view_product.html', data=data)
 
 
 @app.route('/painting', methods=['GET', 'POST'])
@@ -802,6 +810,21 @@ def edit_product():
             return redirect(url_for('admin_login'))
     else:
         return redirect(url_for('admin_login'))
+
+
+@app.route("/rating", methods=["GET", "POST"])
+def rating():
+    if request.method == "POST":
+        details = request.form
+        firstName = details['fname']
+        ratingMessage = details['rmessage']
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO UserRating(firstName, ratingMessage) VALUES (%s, %s)",
+                    (firstName, ratingMessage))
+        mysql.connection.commit()
+        cur.close()
+        flash('Your rating has successfully been posted', 'success')
+    return render_template('rating.html')
 
 
 @app.route('/search', methods=['POST', 'GET'])

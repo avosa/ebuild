@@ -231,6 +231,19 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
+
+
+
+CREATE TABLE `UserRating` (
+  `firstName` varchar(125) NOT NULL,
+  `ratingMessage` varchar(125) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+
+
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `reg_time`, `online`, `activation`) VALUES
 (20, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$z7w9uYgwfbok1kGx$aabqsubMn8DGJENHWXDIaKjGqqgiQ53xbXx8kNbecoD', '+254790123879', '2020-10-11 10:50:27', '0', 'yes'),
 (17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$sdv0V4gY8LU9xnQE$/Ku3gEwbNlureqVT/2hP9CxAlZutVVkNJlNzmnGQrAD', '+254717678794', '2020-10-11 01:17:39', '1', 'yes'),
