@@ -813,6 +813,7 @@ def edit_product():
 
 
 @app.route("/rating", methods=["GET", "POST"])
+@is_logged_in
 def rating():
     if request.method == "POST":
         details = request.form
