@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2020 at 01:57 AM
+-- Generation Time: Oct 18, 2020 at 02:59 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bi`
+-- Database: `ogla`
 --
 
 -- --------------------------------------------------------
@@ -206,7 +206,8 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (21, 17, 43, '2020-10-11 10:03:59'),
 (20, 17, 22, '2020-10-17 23:56:22'),
 (19, 17, 23, '2020-10-17 23:56:26'),
-(33, 17, 45, '2020-10-17 23:56:33');
+(33, 17, 45, '2020-10-17 23:56:33'),
+(34, 17, 44, '2020-10-18 00:58:14');
 
 -- --------------------------------------------------------
 
@@ -217,53 +218,14 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 CREATE TABLE `UserRating` (
   `firstName` varchar(125) NOT NULL,
   `ratingMessage` varchar(125) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `UserRating`
 --
 
 INSERT INTO `UserRating` (`firstName`, `ratingMessage`) VALUES
-('Webster', 'poor'),
-('Webster', 'Good'),
-('Webster', 'Good'),
-('Dennis', 'Average'),
-('Webster', 'Good'),
-('', ''),
-('', ''),
-('', ''),
-('', ''),
-('', ''),
-('', ''),
-('', ''),
-('Webster', 'Good'),
-('Webster', 'Good'),
-('Webster', 'Good'),
-('Webster', 'Good'),
-('Webster', 'Good'),
-('Webster', 'Good'),
-('', ''),
-('', ''),
-('', ''),
-('', ''),
-('Webster', 'Good'),
-('Einz', 'Good'),
-('Einz', 'poor'),
-('Einz', 'Good'),
-('Webster', 'Good'),
-('Einz', 'poor'),
-('Einz', 'poor'),
-('Webster', 'Average'),
-('Webster', 'Average'),
-('James', 'poor'),
-('Einz', 'Good'),
-('Einz', 'Good'),
-('Einz', 'Good'),
-('Webster', 'Good'),
-('Webster', 'Good'),
-('Webster', 'Good'),
-('Webster', 'Average'),
-('Webster', 'Above Expectations');
+('Webster', 'Good');
 
 -- --------------------------------------------------------
 
@@ -365,7 +327,7 @@ ALTER TABLE `product_level`
 -- AUTO_INCREMENT for table `product_view`
 --
 ALTER TABLE `product_view`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `users`
