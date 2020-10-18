@@ -17,12 +17,14 @@
             {% if session.logged_in %}
             <li class="nav-item"><a href="/" class="nav-link"><span style="color:  rgb(236, 54, 236);">Home</span></a></li>
             <li class="nav-item"><a href="/profile?user={{session.uid}}" class="nav-link"><span style="color:  rgb(236, 54, 236);">Profile</span></a>
+                <li class="nav-item"><a href="/contact" class="nav-link"><span style="color:  rgb(236, 54, 236);"> Contact</span></a></li>
             </li>
             <li class="nav-item"><a href="/out" class="nav-link"><span style="color:  rgb(236, 54, 236);" >Logout</span></a></li>
             {% else %}
             <li class="nav-item"><a href="/" class="nav-link"><span style="color:  rgb(236, 54, 236);"> Home</span></a></li>
             <li class="nav-item"><a href="/register" class="nav-link"><span style="color:  rgb(236, 54, 236);">Signup</span></a></li>
             <li class="nav-item"><a href="/login" class="nav-link"><span style="color:  rgb(236, 54, 236);">Login</span></a></li>
+            <li class="nav-item"><a href="/contact" class="nav-link"><span style="color:  rgb(236, 54, 236);"> Contact</span></a></li>
             {% endif %}
         </ul>
     </div>

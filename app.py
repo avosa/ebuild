@@ -1,6 +1,7 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from flask_mysqldb import MySQL
-from wtforms import Form, StringField, TextField, TextAreaField, PasswordField, validators, SelectField
+from wtforms import Form, StringField, TextField, TextAreaField, PasswordField, validators, SelectField, SubmitField
+from flask_wtf import FlaskForm
 from passlib.hash import sha256_crypt
 from functools import wraps
 from flask_uploads import UploadSet, configure_uploads, IMAGES
@@ -9,12 +10,25 @@ import datetime
 from flask_mail import Mail, Message
 import os
 from wtforms.fields.html5 import EmailField
+from wtforms.validators import DataRequired, Email
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 app.config['UPLOADED_PHOTOS_DEST'] = 'static/image/product'
 photos = UploadSet('photos', IMAGES)
 configure_uploads(app, photos)
+
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+# email...
+app.config['MAIL_USERNAME'] = 'mijatovski@gmail.com'
+app.config['MAIL_PASSWORD'] = 'qsvmyyttlsoiuvre'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+# email secret key...
+app.config['SECRET_KEY'] = 'drowssap'
+mail = Mail(app)
 
 # Config MySQL
 mysql = MySQL()
@@ -538,6 +552,33 @@ def logistics():
         x = content_based_filtering(product_id)
         return render_template('order_product.html', x=x, houses=product, form=form)
     return render_template('logistics.html', logistics=products, form=form)
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            msg = Message(form.subject.data, sender='portofolio@mail.com',
+                          recipients=['einzhescky@gmail.com'])
+            msg.body = f" From: {form.name.data} \n Email:  {form.email.data} \n Email Content: \n {form.message.data}"
+            mail.send(msg)
+            flash('You have successfully submitted your message', 'success')
+            return render_template('contact_form.html', form=form, success=True)
+        else:
+            flash(
+                'Please check your credentials and all fields are required !!!', 'danger')
+            return redirect(url_for('contact'))
+    else:
+        return render_template('contact_form.html', form=form)
+
+
+class ContactForm(FlaskForm):
+    name = StringField("Name", validators=[DataRequired()])
+    email = StringField("Email",  validators=[DataRequired(), Email()])
+    subject = StringField("Subject",  validators=[DataRequired()])
+    message = TextAreaField("Message",  validators=[DataRequired()])
+    submit = SubmitField("Send Message")
 
 
 @app.route('/admin_login', methods=['GET', 'POST'])
