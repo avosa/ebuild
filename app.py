@@ -865,7 +865,7 @@ def rating():
                     (firstName, ratingMessage))
         mysql.connection.commit()
         cur.close()
-        flash('Your rating has successfully been posted', 'success')
+        flash('Your rating has been posted successfully ', 'success')
     return render_template('rating.html')
 
 
