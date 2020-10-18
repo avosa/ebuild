@@ -367,10 +367,10 @@ def house():
 
 
 @app.route('/view_product')
-def view_product():
-    cur = con.cursor()
-    cur.execute("select * from UserRating")
-    data = cur.fetchall()
+def view_product(id):
+    curso = mysql.connection.cursor()
+    curso.execute("SELECT * FROM UserRating")
+    data = curso.fetchall()
     return render_template('view_product.html', data=data)
 
 

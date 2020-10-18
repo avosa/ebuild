@@ -20,9 +20,12 @@
         <div class="form-group">
             {{render_field(form.mobile, class="form-control")}}
         </div>
-        <p>
+        <div style="float: right;">
+            <p>Already have an account?<a href="/login"> <span style="color: blue;"> <big>Login</big> </span></a></p>
+        </div>
+        <div style="padding-top: 4px;">
             <input type="submit" class="btn btn-primary" style="background-color:  rgb(236, 54, 236);" value="Sign Up">
-        </p>
+        </div>
     </form>
 </div>
 {% endblock %}

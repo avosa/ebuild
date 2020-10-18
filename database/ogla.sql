@@ -216,6 +216,7 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 --
 
 CREATE TABLE `UserRating` (
+  `id` int(11) NOT NULL,
   `firstName` varchar(125) NOT NULL,
   `ratingMessage` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -224,8 +225,7 @@ CREATE TABLE `UserRating` (
 -- Dumping data for table `UserRating`
 --
 
-INSERT INTO `UserRating` (`firstName`, `ratingMessage`) VALUES
-('Webster', 'Good');
+
 
 -- --------------------------------------------------------
 
@@ -263,6 +263,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `r
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `UserRating`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -305,6 +309,11 @@ ALTER TABLE `users`
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
+
+
+
+ALTER TABLE `UserRating`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `orders`
 --
