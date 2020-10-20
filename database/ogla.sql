@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2020 at 02:59 AM
+-- Generation Time: Oct 20, 2020 at 12:15 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -78,7 +78,11 @@ INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `mobil
 (24, 20, 'Ogla Biwott', 36, 'Other', 'Nairobi', '0790123800', 'no', '2020-10-11 10:52:15', '2020-10-18'),
 (25, 20, 'Ogla Biwott', 26, '3', 'Nairobi', '+2547901239008', 'no', '2020-10-11 10:54:01', '2020-10-18'),
 (27, 20, 'Ogla Biwott', 36, '2', 'Mombasa ', '+254717678794', 'no', '2020-10-11 13:16:48', '2020-10-18'),
-(28, 20, 'Ogla Biwott', 43, '3', 'Mombasa ', '+254717678794', 'no', '2020-10-11 13:18:23', '2020-10-18');
+(28, 20, 'Ogla Biwott', 43, '3', 'Mombasa ', '+254717678794', 'no', '2020-10-11 13:18:23', '2020-10-18'),
+(29, 17, 'Natasha Lona', 23, '1', 'Nairobi', '0717678794', 'no', '2020-10-19 07:00:07', '2020-10-26'),
+(30, 16, 'Oliver Atsinga', 23, '1', 'Mombasa', '+254717678794', 'no', '2020-10-20 04:01:58', '2020-10-27'),
+(31, 16, 'Einz Hescky', 22, 'None', 'Mombasa', '0717678794', 'no', '2020-10-20 04:10:52', '2020-10-27'),
+(32, 16, 'Rabin', 24, 'None', 'Mombasa', '0717678794', 'no', '2020-10-20 04:11:40', '2020-10-27');
 
 -- --------------------------------------------------------
 
@@ -204,10 +208,26 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (23, 17, 38, '2020-10-11 17:44:24'),
 (22, 17, 39, '2020-10-11 17:44:21'),
 (21, 17, 43, '2020-10-11 10:03:59'),
-(20, 17, 22, '2020-10-17 23:56:22'),
-(19, 17, 23, '2020-10-17 23:56:26'),
-(33, 17, 45, '2020-10-17 23:56:33'),
-(34, 17, 44, '2020-10-18 00:58:14');
+(20, 17, 22, '2020-10-19 06:52:39'),
+(19, 17, 23, '2020-10-19 06:57:39'),
+(33, 17, 45, '2020-10-18 13:19:15'),
+(34, 17, 44, '2020-10-19 06:57:34'),
+(35, 22, 22, '2020-10-18 16:42:39'),
+(36, 22, 23, '2020-10-18 16:42:49'),
+(37, 22, 44, '2020-10-18 16:42:26'),
+(38, 16, 23, '2020-10-20 09:43:42'),
+(39, 16, 45, '2020-10-20 10:12:29'),
+(40, 16, 22, '2020-10-20 09:45:07'),
+(41, 16, 44, '2020-10-20 10:12:42'),
+(42, 16, 30, '2020-10-20 04:38:40'),
+(43, 16, 25, '2020-10-20 09:43:52'),
+(44, 16, 31, '2020-10-20 09:47:15'),
+(45, 23, 22, '2020-10-20 10:11:41'),
+(46, 23, 23, '2020-10-20 10:11:44'),
+(47, 23, 45, '2020-10-20 10:00:08'),
+(48, 23, 30, '2020-10-20 10:07:59'),
+(49, 23, 25, '2020-10-20 10:08:12'),
+(50, 23, 29, '2020-10-20 10:11:49');
 
 -- --------------------------------------------------------
 
@@ -225,7 +245,21 @@ CREATE TABLE `UserRating` (
 -- Dumping data for table `UserRating`
 --
 
-
+INSERT INTO `UserRating` (`id`, `firstName`, `ratingMessage`) VALUES
+(38, 'Webster', 'good'),
+(39, 'James', 'fair'),
+(40, 'Ogla', 'excellent'),
+(41, 'Grace', 'satisfactory'),
+(42, 'Faith', 'good'),
+(43, 'Rabin', 'fair'),
+(44, 'Candy', 'satisfactory'),
+(45, 'Ogla', 'satisfactory'),
+(46, 'James', 'fair'),
+(47, 'Webster', 'satisfactory'),
+(48, 'Rabin', 'poor'),
+(49, 'George', 'satisfactory'),
+(50, 'Webster', 'satisfactory'),
+(51, 'Rabin', 'excellent');
 
 -- --------------------------------------------------------
 
@@ -251,9 +285,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `reg_time`, `online`, `activation`) VALUES
 (20, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$z7w9uYgwfbok1kGx$aabqsubMn8DGJENHWXDIaKjGqqgiQ53xbXx8kNbecoD', '+254790123879', '2020-10-11 10:50:27', '0', 'yes'),
-(17, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$Zmy71Ror1yIJpsn2$uqMqPgBVp302eAZU4KuBOg/2SHiAj8fFVvZ/UUq1YV8', '+254717678794', '2020-10-11 01:17:39', '1', 'yes'),
+(23, 'Nadia Mukami', 'nadia@gmail.com', 'nadia', '$5$rounds=535000$Pw8eMa.UHsYfOiUL$VjmxG01lfVyn1rwa4UNq/.7uhnH4I0tfyKdrnUbnilC', '+254717678777', '2020-10-20 09:48:05', '0', 'yes'),
 (16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '1', 'yes'),
-(21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'oglabiwott21@gmail.com', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes');
+(21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'oglabiwott21@gmail.com', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes'),
+(22, 'Vincent Bosire', 'vincent@gmail.com', 'vinny', '$5$rounds=535000$KRRRK.XVvthgzGz6$RObl0zRWeXFbD/UGVPX7DxyoeK5Zf52Docr7JppE714', '0717678794', '2020-10-18 13:20:45', '0', 'yes');
 
 --
 -- Indexes for dumped tables
@@ -263,10 +298,6 @@ INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `r
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
-
-ALTER TABLE `UserRating`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -294,6 +325,12 @@ ALTER TABLE `product_view`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `UserRating`
+--
+ALTER TABLE `UserRating`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -309,16 +346,11 @@ ALTER TABLE `users`
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
-
-
-
-ALTER TABLE `UserRating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -336,13 +368,19 @@ ALTER TABLE `product_level`
 -- AUTO_INCREMENT for table `product_view`
 --
 ALTER TABLE `product_view`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT for table `UserRating`
+--
+ALTER TABLE `UserRating`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

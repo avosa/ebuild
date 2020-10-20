@@ -11,11 +11,20 @@
     <center> 
     <div style="padding-bottom: 4px;">
         <label for="id3u">First Name</label>
-        <input type = "text" name= "fname" placeholder="eg Ogla" required /> 
+        <input style="width: 200px;" type = "text" name= "fname" placeholder="Enter Name e.g. Ogla" required /> 
     </div>
     <div style="padding-top: 4px;">
         <label for="id4u">Feedback</label>
-        <input type = "text" name = "rmessage" placeholder="Good" required /> 
+        <!-- <input type = "text" name = "rmessage" placeholder="Good" required />  -->
+        <select name="rmessage" id="" style="width: 200px;" required>
+            <option value="" selected="selected" disabled="true">--Please Select--</option>
+            <option value="poor">Poor</option>
+            <option value="fair">Fair</option>
+            <option value="satisfactory">Satisfactory</option>
+            <option value="good">Good</option>
+            <option value="excellent">Excellent</option>
+        </select>
+
     </div>
     <a href="/view_product">
         <input style="background-color:  rgb(236, 54, 236); color: white;" type = "submit">

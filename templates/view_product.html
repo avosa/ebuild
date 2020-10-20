@@ -32,6 +32,7 @@
                             <h4>Ksh. {{ product.price}}</h4>
                             <p class="card-text">{{ product.description}}</p>
                             <a href="/{{product.category}}?order={{product.id}}" class="btn btn-success" style="background-color: rgb(236, 54, 236);">Reach Expert</a>
+                            <!-- <a href="/{{product.category}}?order={{product.id}}" class="btn btn-success" style="background-color: rgb(236, 54, 236);">Reach Expert</a> -->
                         </div>
                     </div>
                 </div>
@@ -61,7 +62,7 @@
                         What other clients say
                     </div>
                     <div class="card-body">
-                        <h3 class="card-title">{{ product.pName}}</h3>
+                        <h3 class="card-title">{{ product.pName }}</h3>
                     </div>
                    <table>
                        <thead>
@@ -73,13 +74,15 @@
 
                        </thead>
                        <tbody>
-                           {% for item in data %}
+                          
                            <tr>
+                            {% for item in data %}
                                <td>{{ item.id }}</td>
                                <td>{{ item.firstName }}</td>
                                <td>{{ item.ratingMessage }}</td>
+                               {% endfor %}
                            </tr>
-                           {% endfor %}
+                           
                        </tbody>
                    </table>
                 </div>

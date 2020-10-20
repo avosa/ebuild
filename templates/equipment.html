@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
-            <h1 class="my-4">Equipment</h1>
+            <h2 class="my-4">Equipment</h2>
             <div class="list-group">
                 <a href="/house" class="list-group-item">Houses</a>
                 <a href="/painting" class="list-group-item">Painting</a>
@@ -12,8 +12,8 @@
                 <a href="/logistics" class="list-group-item">Logistics</a>
             </div>
         </div>
-        <!-- /.col-lg-3 -->
-        <div class="col-lg-9">
+         <!-- Advert carousel -->
+         <div class="col-lg-9">
             {% include 'includes/_flashmsg.html' %}
             <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -35,7 +35,6 @@
                              width="1100" height="300">
                        
                     </div>
-                    </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,17 +46,18 @@
                 </a>
             </div>
 
+            <!-- Products under equipment section -->
             <div class="row">
                 {% for product in equipment %}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
                     <div class="card h-100">
-                        <a href="/equipment?view={{product.id}}">
+                        <a href="/house?view={{product.id}}">
                             <div class="card-img-top"
                                  style="background: url('static/image/product/{{product.category}}/{{product.picture}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
                         </a>
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="/equipment?view={{product.id}}">{{ product.pName}}</a>
+                                <a href="/house?view={{product.id}}">{{ product.pName}}</a>
                             </h5>
                             <h4>Ksh. {{product.price}}</h4>
                         </div>

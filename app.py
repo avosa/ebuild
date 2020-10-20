@@ -371,6 +371,7 @@ def view_product(id):
     curso = mysql.connection.cursor()
     curso.execute("SELECT * FROM UserRating")
     data = curso.fetchall()
+    print(data)
     return render_template('view_product.html', data=data)
 
 
