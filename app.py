@@ -415,7 +415,8 @@ def painting():
         # Close Connection
         cur.close()
 
-        flash('Request submitted succefully, an expert will contact you shortly', 'success')
+        flash(
+            'Request submitted successfully, an expert will contact you shortly', 'success')
         return render_template('painting.html', painting=products, form=form)
     if 'view' in request.args:
         q = request.args['view']
