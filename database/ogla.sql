@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 20, 2020 at 12:15 PM
+-- Generation Time: Oct 21, 2020 at 07:03 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -71,7 +71,11 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-
+INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `order_description`, `mobile`, `dstatus`, `odate`, `ddate`) VALUES
+(33, 16, 'Webster Avosa', 22, '1', 'Mombasa ', 'I want a house of this sort. How much will it cost me? Do you allow customization?', '+254717678794', 'no', '2020-10-21 16:13:41', '2020-10-28'),
+(34, 23, 'Nadia Mukami', 44, '2', 'Eldoret', 'How much will you charge me for this with customized features?', '0711000111', 'no', '2020-10-21 16:38:03', '2020-10-28'),
+(35, 20, 'Ogla Biwott', 45, 'Other', 'Kilifi', 'Can I have this though customizable?', '0790123800', 'no', '2020-10-21 16:39:37', '2020-10-28'),
+(36, 24, 'Natasha Lonah', 23, '2', 'Malindi', 'How much can I have this best price', '0720123456', 'no', '2020-10-21 16:53:33', '2020-10-28');
 
 -- --------------------------------------------------------
 
@@ -206,17 +210,23 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (37, 22, 44, '2020-10-18 16:42:26'),
 (38, 16, 23, '2020-10-20 09:43:42'),
 (39, 16, 45, '2020-10-20 10:12:29'),
-(40, 16, 22, '2020-10-20 09:45:07'),
-(41, 16, 44, '2020-10-20 10:12:42'),
+(40, 16, 22, '2020-10-21 16:12:46'),
+(41, 16, 44, '2020-10-21 16:36:29'),
 (42, 16, 30, '2020-10-20 04:38:40'),
 (43, 16, 25, '2020-10-20 09:43:52'),
 (44, 16, 31, '2020-10-20 09:47:15'),
 (45, 23, 22, '2020-10-20 10:11:41'),
 (46, 23, 23, '2020-10-20 10:11:44'),
-(47, 23, 45, '2020-10-20 10:00:08'),
+(47, 23, 45, '2020-10-21 16:38:24'),
 (48, 23, 30, '2020-10-20 10:07:59'),
 (49, 23, 25, '2020-10-20 10:08:12'),
-(50, 23, 29, '2020-10-20 10:11:49');
+(50, 23, 29, '2020-10-20 10:11:49'),
+(51, 23, 44, '2020-10-21 16:36:54'),
+(52, 20, 45, '2020-10-21 16:51:53'),
+(53, 20, 23, '2020-10-21 16:51:57'),
+(54, 24, 23, '2020-10-21 16:54:30'),
+(55, 24, 22, '2020-10-21 16:58:14'),
+(56, 24, 45, '2020-10-21 16:58:31');
 
 -- --------------------------------------------------------
 
@@ -275,9 +285,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `reg_time`, `online`, `activation`) VALUES
 (20, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$z7w9uYgwfbok1kGx$aabqsubMn8DGJENHWXDIaKjGqqgiQ53xbXx8kNbecoD', '+254790123879', '2020-10-11 10:50:27', '0', 'yes'),
 (23, 'Nadia Mukami', 'nadia@gmail.com', 'nadia', '$5$rounds=535000$Pw8eMa.UHsYfOiUL$VjmxG01lfVyn1rwa4UNq/.7uhnH4I0tfyKdrnUbnilC', '+254717678777', '2020-10-20 09:48:05', '0', 'yes'),
-(16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '1', 'yes'),
+(16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '0', 'yes'),
 (21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'oglabiwott21@gmail.com', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes'),
-(22, 'Vincent Bosire', 'vincent@gmail.com', 'vinny', '$5$rounds=535000$KRRRK.XVvthgzGz6$RObl0zRWeXFbD/UGVPX7DxyoeK5Zf52Docr7JppE714', '0717678794', '2020-10-18 13:20:45', '0', 'yes');
+(22, 'Vincent Bosire', 'vincent@gmail.com', 'vinny', '$5$rounds=535000$KRRRK.XVvthgzGz6$RObl0zRWeXFbD/UGVPX7DxyoeK5Zf52Docr7JppE714', '0717678794', '2020-10-18 13:20:45', '0', 'yes'),
+(24, 'Natasha Lonah', 'natasha@gmail.com', 'natasha', '$5$rounds=535000$gAqzLSOyTS.g9rDJ$/cNK6EVkdsij3BxmzhVRSlgVlAoQzi6g29Md/cETQx.', '0720123456', '2020-10-21 16:52:39', '1', 'yes');
 
 --
 -- Indexes for dumped tables
@@ -339,7 +350,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -357,7 +368,7 @@ ALTER TABLE `product_level`
 -- AUTO_INCREMENT for table `product_view`
 --
 ALTER TABLE `product_view`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `UserRating`
@@ -369,7 +380,7 @@ ALTER TABLE `UserRating`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
