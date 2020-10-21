@@ -304,6 +304,7 @@ def house():
         name = form.name.data
         mobile = form.mobile_num.data
         order_place = form.order_place.data
+        order_description = form.order_description.data
         quantity = form.quantity.data
         pid = request.args['order']
         now = datetime.datetime.now()
@@ -314,13 +315,13 @@ def house():
         curs = mysql.connection.cursor()
         if 'uid' in session:
             uid = session['uid']
-            curs.execute("INSERT INTO orders(uid, pid, ofname, mobile, oplace, quantity, ddate) "
-                         "VALUES(%s, %s, %s, %s, %s, %s, %s)",
-                         (uid, pid, name, mobile, order_place, quantity, now_time))
+            curs.execute("INSERT INTO orders(uid, pid, ofname, mobile, oplace, order_description, quantity, ddate) "
+                         "VALUES(%s, %s, %s, %s, %s, %s, %s, %s)",
+                         (uid, pid, name, mobile, order_place, order_description, quantity, now_time))
         else:
-            curs.execute("INSERT INTO orders(pid, ofname, mobile, oplace, quantity, ddate) "
-                         "VALUES(%s, %s, %s, %s, %s, %s)",
-                         (pid, name, mobile, order_place, quantity, now_time))
+            curs.execute("INSERT INTO orders(pid, ofname, mobile, oplace,order_description, quantity, ddate) "
+                         "VALUES(%s, %s, %s,%s, %s, %s, %s)",
+                         (pid, name, mobile, order_place, order_description, quantity, now_time))
         # Commit cursor
         mysql.connection.commit()
 
@@ -392,6 +393,7 @@ def painting():
         name = form.name.data
         mobile = form.mobile_num.data
         order_place = form.order_place.data
+        order_description = form.order_description.data
         quantity = form.quantity.data
         pid = request.args['order']
 
@@ -403,13 +405,13 @@ def painting():
         curs = mysql.connection.cursor()
         if 'uid' in session:
             uid = session['uid']
-            curs.execute("INSERT INTO orders(uid, pid, ofname, mobile, oplace, quantity, ddate) "
-                         "VALUES(%s, %s, %s, %s, %s, %s, %s)",
-                         (uid, pid, name, mobile, order_place, quantity, now_time))
+            curs.execute("INSERT INTO orders(uid, pid, ofname, mobile, oplace,order_description, quantity, ddate) "
+                         "VALUES(%s, %s, %s, %s,%s, %s, %s, %s)",
+                         (uid, pid, name, mobile, order_place, order_description, quantity, now_time))
         else:
-            curs.execute("INSERT INTO orders(pid, ofname, mobile, oplace, quantity, ddate) "
-                         "VALUES(%s, %s, %s, %s, %s, %s)",
-                         (pid, name, mobile, order_place, quantity, now_time))
+            curs.execute("INSERT INTO orders(pid, ofname, mobile, oplace,order_description, quantity, ddate) "
+                         "VALUES(%s, %s, %s,%s, %s, %s, %s)",
+                         (pid, name, mobile, order_place, order_description, quantity, now_time))
         # Commit cursor
         mysql.connection.commit()
         # Close Connection
@@ -453,6 +455,7 @@ def equipment():
         name = form.name.data
         mobile = form.mobile_num.data
         order_place = form.order_place.data
+        order_description = form.order_description.data
         quantity = form.quantity.data
         pid = request.args['order']
         now = datetime.datetime.now()
@@ -463,13 +466,13 @@ def equipment():
         curs = mysql.connection.cursor()
         if 'uid' in session:
             uid = session['uid']
-            curs.execute("INSERT INTO orders(uid, pid, ofname, mobile, oplace, quantity, ddate) "
-                         "VALUES(%s, %s, %s, %s, %s, %s, %s)",
-                         (uid, pid, name, mobile, order_place, quantity, now_time))
+            curs.execute("INSERT INTO orders(uid, pid, ofname, mobile, oplace,order_description, quantity, ddate) "
+                         "VALUES(%s, %s, %s, %s,%s, %s, %s, %s)",
+                         (uid, pid, name, mobile, order_place, order_description, quantity, now_time))
         else:
-            curs.execute("INSERT INTO orders(pid, ofname, mobile, oplace, quantity, ddate) "
-                         "VALUES(%s, %s, %s, %s, %s, %s)",
-                         (pid, name, mobile, order_place, quantity, now_time))
+            curs.execute("INSERT INTO orders(pid, ofname, mobile, oplace,order_description, quantity, ddate) "
+                         "VALUES(%s, %s, %s,%s, %s, %s, %s)",
+                         (pid, name, mobile, order_place, order_description, quantity, now_time))
 
         # Commit cursor
         mysql.connection.commit()
@@ -514,6 +517,7 @@ def logistics():
         name = form.name.data
         mobile = form.mobile_num.data
         order_place = form.order_place.data
+        order_description = form.order_description.data
         quantity = form.quantity.data
         pid = request.args['order']
         now = datetime.datetime.now()
@@ -524,13 +528,13 @@ def logistics():
         curs = mysql.connection.cursor()
         if 'uid' in session:
             uid = session['uid']
-            curs.execute("INSERT INTO orders(uid, pid, ofname, mobile, oplace, quantity, ddate) "
-                         "VALUES(%s, %s, %s, %s, %s, %s, %s)",
-                         (uid, pid, name, mobile, order_place, quantity, now_time))
+            curs.execute("INSERT INTO orders(uid, pid, ofname, mobile, oplace,order_description, quantity, ddate) "
+                         "VALUES(%s, %s, %s, %s,%s, %s, %s, %s)",
+                         (uid, pid, name, mobile, order_place, order_description, quantity, now_time))
         else:
             curs.execute("INSERT INTO orders(pid, ofname, mobile, oplace, quantity, ddate) "
-                         "VALUES(%s, %s, %s, %s, %s, %s)",
-                         (pid, name, mobile, order_place, quantity, now_time))
+                         "VALUES(%s, %s, %s,%s, %s, %s, %s)",
+                         (pid, name, mobile, order_place, order_description, quantity, now_time))
         # Commit cursor
         mysql.connection.commit()
         # Close Connection

@@ -60,6 +60,7 @@ CREATE TABLE `orders` (
   `pid` int(11) NOT NULL,
   `quantity` varchar(11) NOT NULL,
   `oplace` text NOT NULL,
+  `order_description` text NOT NULL,
   `mobile` varchar(15) NOT NULL,
   `dstatus` varchar(10) NOT NULL DEFAULT 'no',
   `odate` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -70,19 +71,7 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `mobile`, `dstatus`, `odate`, `ddate`) VALUES
-(20, NULL, 'Ogla Biwott', 22, 'Inquiry', 'Nairobi', '+254717678794', 'no', '2020-10-11 05:37:42', '2020-10-18'),
-(21, NULL, 'Ogla Biwott', 23, 'Inquiry', 'Nairobi', '+254717678794', 'no', '2020-10-11 05:44:33', '2020-10-18'),
-(22, 17, 'Ogla Biwott', 23, 'Other', 'Mombasa ', '+254717678794', 'no', '2020-10-11 07:38:57', '2020-10-18'),
-(23, NULL, 'Webster Avosa', 23, 'Other', 'Mombasa ', '+254717678794', 'no', '2020-10-11 09:02:26', '2020-10-18'),
-(24, 20, 'Ogla Biwott', 36, 'Other', 'Nairobi', '0790123800', 'no', '2020-10-11 10:52:15', '2020-10-18'),
-(25, 20, 'Ogla Biwott', 26, '3', 'Nairobi', '+2547901239008', 'no', '2020-10-11 10:54:01', '2020-10-18'),
-(27, 20, 'Ogla Biwott', 36, '2', 'Mombasa ', '+254717678794', 'no', '2020-10-11 13:16:48', '2020-10-18'),
-(28, 20, 'Ogla Biwott', 43, '3', 'Mombasa ', '+254717678794', 'no', '2020-10-11 13:18:23', '2020-10-18'),
-(29, 17, 'Natasha Lona', 23, '1', 'Nairobi', '0717678794', 'no', '2020-10-19 07:00:07', '2020-10-26'),
-(30, 16, 'Oliver Atsinga', 23, '1', 'Mombasa', '+254717678794', 'no', '2020-10-20 04:01:58', '2020-10-27'),
-(31, 16, 'Einz Hescky', 22, 'None', 'Mombasa', '0717678794', 'no', '2020-10-20 04:10:52', '2020-10-27'),
-(32, 16, 'Rabin', 24, 'None', 'Mombasa', '0717678794', 'no', '2020-10-20 04:11:40', '2020-10-27');
+
 
 -- --------------------------------------------------------
 
