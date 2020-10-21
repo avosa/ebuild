@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 21, 2020 at 07:03 PM
+-- Generation Time: Oct 21, 2020 at 09:37 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -75,7 +75,9 @@ INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `order
 (33, 16, 'Webster Avosa', 22, '1', 'Mombasa ', 'I want a house of this sort. How much will it cost me? Do you allow customization?', '+254717678794', 'no', '2020-10-21 16:13:41', '2020-10-28'),
 (34, 23, 'Nadia Mukami', 44, '2', 'Eldoret', 'How much will you charge me for this with customized features?', '0711000111', 'no', '2020-10-21 16:38:03', '2020-10-28'),
 (35, 20, 'Ogla Biwott', 45, 'Other', 'Kilifi', 'Can I have this though customizable?', '0790123800', 'no', '2020-10-21 16:39:37', '2020-10-28'),
-(36, 24, 'Natasha Lonah', 23, '2', 'Malindi', 'How much can I have this best price', '0720123456', 'no', '2020-10-21 16:53:33', '2020-10-28');
+(36, 24, 'Natasha Lonah', 23, '2', 'Malindi', 'How much can I have this best price', '0720123456', 'no', '2020-10-21 16:53:33', '2020-10-28'),
+(37, 24, 'Natasha Lonah', 44, 'Inquiry', 'Kisii', 'Is this available in Kisii?', '0717678794', 'no', '2020-10-21 17:29:18', '2020-10-28'),
+(38, 25, 'Einz Hescky', 24, 'Inquiry', 'Dodoma', 'Do you offer this service in Dodoma?', '0799678794', 'no', '2020-10-21 19:32:24', '2020-10-28');
 
 -- --------------------------------------------------------
 
@@ -208,8 +210,8 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (35, 22, 22, '2020-10-18 16:42:39'),
 (36, 22, 23, '2020-10-18 16:42:49'),
 (37, 22, 44, '2020-10-18 16:42:26'),
-(38, 16, 23, '2020-10-20 09:43:42'),
-(39, 16, 45, '2020-10-20 10:12:29'),
+(38, 16, 23, '2020-10-21 19:30:37'),
+(39, 16, 45, '2020-10-21 19:29:15'),
 (40, 16, 22, '2020-10-21 16:12:46'),
 (41, 16, 44, '2020-10-21 16:36:29'),
 (42, 16, 30, '2020-10-20 04:38:40'),
@@ -224,9 +226,11 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (51, 23, 44, '2020-10-21 16:36:54'),
 (52, 20, 45, '2020-10-21 16:51:53'),
 (53, 20, 23, '2020-10-21 16:51:57'),
-(54, 24, 23, '2020-10-21 16:54:30'),
-(55, 24, 22, '2020-10-21 16:58:14'),
-(56, 24, 45, '2020-10-21 16:58:31');
+(54, 24, 23, '2020-10-21 17:28:38'),
+(55, 24, 22, '2020-10-21 17:28:36'),
+(56, 24, 45, '2020-10-21 16:58:31'),
+(57, 24, 44, '2020-10-21 17:28:52'),
+(58, 24, 31, '2020-10-21 19:27:27');
 
 -- --------------------------------------------------------
 
@@ -288,7 +292,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `r
 (16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '0', 'yes'),
 (21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'oglabiwott21@gmail.com', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes'),
 (22, 'Vincent Bosire', 'vincent@gmail.com', 'vinny', '$5$rounds=535000$KRRRK.XVvthgzGz6$RObl0zRWeXFbD/UGVPX7DxyoeK5Zf52Docr7JppE714', '0717678794', '2020-10-18 13:20:45', '0', 'yes'),
-(24, 'Natasha Lonah', 'natasha@gmail.com', 'natasha', '$5$rounds=535000$gAqzLSOyTS.g9rDJ$/cNK6EVkdsij3BxmzhVRSlgVlAoQzi6g29Md/cETQx.', '0720123456', '2020-10-21 16:52:39', '1', 'yes');
+(24, 'Natasha Lonah', 'natasha@gmail.com', 'natasha', '$5$rounds=535000$gAqzLSOyTS.g9rDJ$/cNK6EVkdsij3BxmzhVRSlgVlAoQzi6g29Md/cETQx.', '0720123456', '2020-10-21 16:52:39', '0', 'yes'),
+(25, 'Einz Hescky', 'einzhescky@gmail.com', 'einz', '$5$rounds=535000$T3qZFv1AbrhLx81H$fHQSOVkYmjJnJeZOFV9WQKU/extHYO.sp1oPsvSAMl9', '0717678794', '2020-10-21 19:31:17', '1', 'yes');
 
 --
 -- Indexes for dumped tables
@@ -350,7 +355,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -368,7 +373,7 @@ ALTER TABLE `product_level`
 -- AUTO_INCREMENT for table `product_view`
 --
 ALTER TABLE `product_view`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `UserRating`
@@ -380,7 +385,7 @@ ALTER TABLE `UserRating`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
