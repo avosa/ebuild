@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 21, 2020 at 09:37 PM
+-- Generation Time: Oct 21, 2020 at 09:39 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -290,10 +290,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `r
 (20, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$z7w9uYgwfbok1kGx$aabqsubMn8DGJENHWXDIaKjGqqgiQ53xbXx8kNbecoD', '+254790123879', '2020-10-11 10:50:27', '0', 'yes'),
 (23, 'Nadia Mukami', 'nadia@gmail.com', 'nadia', '$5$rounds=535000$Pw8eMa.UHsYfOiUL$VjmxG01lfVyn1rwa4UNq/.7uhnH4I0tfyKdrnUbnilC', '+254717678777', '2020-10-20 09:48:05', '0', 'yes'),
 (16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '0', 'yes'),
-(21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'oglabiwott21@gmail.com', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes'),
+(21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes'),
 (22, 'Vincent Bosire', 'vincent@gmail.com', 'vinny', '$5$rounds=535000$KRRRK.XVvthgzGz6$RObl0zRWeXFbD/UGVPX7DxyoeK5Zf52Docr7JppE714', '0717678794', '2020-10-18 13:20:45', '0', 'yes'),
 (24, 'Natasha Lonah', 'natasha@gmail.com', 'natasha', '$5$rounds=535000$gAqzLSOyTS.g9rDJ$/cNK6EVkdsij3BxmzhVRSlgVlAoQzi6g29Md/cETQx.', '0720123456', '2020-10-21 16:52:39', '0', 'yes'),
-(25, 'Einz Hescky', 'einzhescky@gmail.com', 'einz', '$5$rounds=535000$T3qZFv1AbrhLx81H$fHQSOVkYmjJnJeZOFV9WQKU/extHYO.sp1oPsvSAMl9', '0717678794', '2020-10-21 19:31:17', '1', 'yes');
+(25, 'Einz Hescky', 'einzhescky@gmail.com', 'einz', '$5$rounds=535000$T3qZFv1AbrhLx81H$fHQSOVkYmjJnJeZOFV9WQKU/extHYO.sp1oPsvSAMl9', '0717678794', '2020-10-21 19:31:17', '0', 'yes');
 
 --
 -- Indexes for dumped tables
