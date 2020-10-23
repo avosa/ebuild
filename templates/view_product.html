@@ -64,28 +64,35 @@
                     <div class="card-body">
                         <h3 class="card-title">{{ product.pName }}</h3>
                     </div>
-                   <table>
-                       <thead>
-                           <tr>
-                               <th>Id</th>
-                               <th>Client Name</th>
-                               <th>Rating</th>
-                           </tr>
+                   
+                
 
-                       </thead>
-                       <tbody>
-                          
-                           <tr>
-                            {% for item in data %}
-                               <td>{{ item.id }}</td>
-                               <td>{{ item.firstName }}</td>
-                               <td>{{ item.ratingMessage }}</td>
-                               {% endfor %}
-                           </tr>
-                           
-                       </tbody>
-                   </table>
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Client Name</th>
+                            <th>Rating</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in data %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.firstName }}</td>
+                            <td>{{ item.ratingMessage }}</td>
+                        </tr>
+                        {% endfor%}
+                        </tbody>
+                    </table>
                 </div>
+
+            </div>
+
+
             </div>
             {% endfor %}
             <!-- /.ratings -->  

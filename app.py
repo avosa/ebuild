@@ -336,9 +336,16 @@ def house():
         curso = mysql.connection.cursor()
         curso.execute("SELECT * FROM products WHERE id=%s", (product_id,))
         product = curso.fetchall()
+
+        # Fetch ratings
+        curso = mysql.connection.cursor()
+        curso.execute("SELECT * FROM UserRating")
+        data = curso.fetchall()
+
         x = content_based_filtering(product_id)
         wrappered = wrappers(content_based_filtering, product_id)
         execution_time = timeit.timeit(wrappered, number=0)
+
         # print('Execution time: ' + str(execution_time) + ' usec')
         if 'uid' in session:
             uid = session['uid']
@@ -356,7 +363,13 @@ def house():
                 cur.execute(
                     "INSERT INTO product_view(user_id, product_id) VALUES(%s, %s)", (uid, product_id))
                 mysql.connection.commit()
-        return render_template('view_product.html', x=x, houses=product)
+                # Fetch ratings data
+                curso = mysql.connection.cursor()
+                curso.execute("SELECT * FROM UserRating")
+                data = curso.fetchall()
+
+        # Return to view_product.html
+        return render_template('view_product.html', x=x, data=data, houses=product)
     elif 'order' in request.args:
         product_id = request.args['order']
         curso = mysql.connection.cursor()
@@ -365,15 +378,6 @@ def house():
         x = content_based_filtering(product_id)
         return render_template('order_product.html', x=x, houses=product, form=form)
     return render_template('house.html', house=products, form=form)
-
-
-@app.route('/view_product')
-def view_product(id):
-    curso = mysql.connection.cursor()
-    curso.execute("SELECT * FROM UserRating")
-    data = curso.fetchall()
-    print(data)
-    return render_template('view_product.html', data=data)
 
 
 @app.route('/painting', methods=['GET', 'POST'])
@@ -427,7 +431,15 @@ def painting():
         curso = mysql.connection.cursor()
         curso.execute("SELECT * FROM products WHERE id=%s", (q,))
         products = curso.fetchall()
-        return render_template('view_product.html', x=x, houses=products)
+
+        # Fetch ratings data
+        curso = mysql.connection.cursor()
+        curso.execute("SELECT * FROM UserRating")
+        data = curso.fetchall()
+
+        # Return to view_products.html
+        return render_template('view_product.html', x=x, data=data, houses=products)
+
     elif 'order' in request.args:
         product_id = request.args['order']
         curso = mysql.connection.cursor()
@@ -489,7 +501,13 @@ def equipment():
         curso = mysql.connection.cursor()
         curso.execute("SELECT * FROM products WHERE id=%s", (q,))
         products = curso.fetchall()
-        return render_template('view_product.html', x=x, houses=products)
+
+        curso = mysql.connection.cursor()
+        curso.execute("SELECT * FROM UserRating")
+        data = curso.fetchall()
+
+        # Return to view_products.html
+        return render_template('view_product.html', x=x, data=data, houses=products)
     elif 'order' in request.args:
         product_id = request.args['order']
         curso = mysql.connection.cursor()
@@ -549,7 +567,12 @@ def logistics():
         curso = mysql.connection.cursor()
         curso.execute("SELECT * FROM products WHERE id=%s", (q,))
         products = curso.fetchall()
-        return render_template('view_product.html', x=x, houses=products)
+        curso = mysql.connection.cursor()
+        curso.execute("SELECT * FROM UserRating")
+        data = curso.fetchall()
+
+        # Return to view_products.html
+        return render_template('view_product.html', x=x, data=data, houses=products)
     elif 'order' in request.args:
         product_id = request.args['order']
         curso = mysql.connection.cursor()
