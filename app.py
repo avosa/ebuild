@@ -722,6 +722,20 @@ def view_ratings():
                            users_rows=users_rows)
 
 
+# Delete rating
+@app.route('/delete_rating/<string:id>', methods=['POST'])
+@is_admin_logged_in
+def delete_rating(id):
+    # Create cursor
+    curso = mysql.connection.cursor()
+    curso.execute("DELETE FROM UserRating WHERE id = %s", [id])
+    curso.close()
+
+    flash('Rating deleted successfully', 'success')
+
+    return redirect(url_for('view_ratings'))
+
+
 # admin manage users route
 @app.route('/users')
 @is_admin_logged_in

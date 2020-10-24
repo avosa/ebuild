@@ -130,7 +130,7 @@
                             <th>Customer Id</th>
                             <th>Client Name</th>
                             <th>Rating</th>
-                            <!-- <th>Manage Ratings</th> -->
+                            <th>DELETE</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -140,15 +140,12 @@
                             <td>{{ item.id }}</td>
                             <td>{{ item.firstName.capitalize() }}</td>
                             <td>{{ item.ratingMessage.capitalize()}}</td>
-                            <!-- <td>
-                                <a href="/manage_ratings?id={{item.id}}">
-                                    <div class="">
-                                        <span class="">Edit</span>
-                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </a>
-                            </td> -->
+                            <td>
+                                <form action="{{ url_for('delete_rating', id=admin_view_rating.id) }}" method="POST" >
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                  </form>
+                            </td>
                         </tr>
                         {% endfor%}
                         </tbody>
