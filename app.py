@@ -362,11 +362,6 @@ def house():
             else:
                 cur.execute(
                     "INSERT INTO product_view(user_id, product_id) VALUES(%s, %s)", (uid, product_id))
-                mysql.connection.commit()
-                # Fetch ratings data
-                curso = mysql.connection.cursor()
-                curso.execute("SELECT * FROM UserRating")
-                data = curso.fetchall()
 
         # Return to view_product.html
         return render_template('view_product.html', x=x, data=data, houses=product)
