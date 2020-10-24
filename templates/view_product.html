@@ -82,7 +82,7 @@
                         {% for item in data %}
                         <tr>
                             <!-- <td>{{ item.id }}</td> -->
-                            <td>{{ item.firstName }}</td>
+                            <td>{{ item.firstName.capitalize() }}</td>
                             <td>{{ item.ratingMessage.capitalize()}}</td>
                         </tr>
                         {% endfor%}
