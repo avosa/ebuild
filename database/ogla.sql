@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 21, 2020 at 09:39 PM
+-- Generation Time: Oct 24, 2020 at 11:53 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -210,13 +210,13 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (35, 22, 22, '2020-10-18 16:42:39'),
 (36, 22, 23, '2020-10-18 16:42:49'),
 (37, 22, 44, '2020-10-18 16:42:26'),
-(38, 16, 23, '2020-10-21 19:30:37'),
-(39, 16, 45, '2020-10-21 19:29:15'),
-(40, 16, 22, '2020-10-21 16:12:46'),
-(41, 16, 44, '2020-10-21 16:36:29'),
-(42, 16, 30, '2020-10-20 04:38:40'),
-(43, 16, 25, '2020-10-20 09:43:52'),
-(44, 16, 31, '2020-10-20 09:47:15'),
+(38, 16, 23, '2020-10-24 09:19:17'),
+(39, 16, 45, '2020-10-24 09:48:08'),
+(40, 16, 22, '2020-10-24 09:50:33'),
+(41, 16, 44, '2020-10-24 09:32:33'),
+(42, 16, 30, '2020-10-24 09:26:38'),
+(43, 16, 25, '2020-10-24 09:50:28'),
+(44, 16, 31, '2020-10-24 09:50:19'),
 (45, 23, 22, '2020-10-20 10:11:41'),
 (46, 23, 23, '2020-10-20 10:11:44'),
 (47, 23, 45, '2020-10-21 16:38:24'),
@@ -230,7 +230,11 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (55, 24, 22, '2020-10-21 17:28:36'),
 (56, 24, 45, '2020-10-21 16:58:31'),
 (57, 24, 44, '2020-10-21 17:28:52'),
-(58, 24, 31, '2020-10-21 19:27:27');
+(58, 24, 31, '2020-10-21 19:27:27'),
+(59, 16, 26, '2020-10-24 09:48:12'),
+(60, 16, 29, '2020-10-24 09:53:19'),
+(61, 16, 33, '2020-10-24 09:27:55'),
+(62, 16, 28, '2020-10-24 09:32:13');
 
 -- --------------------------------------------------------
 
@@ -256,13 +260,15 @@ INSERT INTO `UserRating` (`id`, `firstName`, `ratingMessage`) VALUES
 (42, 'Faith', 'good'),
 (43, 'Rabin', 'fair'),
 (44, 'Candy', 'satisfactory'),
-(45, 'Ogla', 'satisfactory'),
-(46, 'James', 'fair'),
-(47, 'Webster', 'satisfactory'),
-(48, 'Rabin', 'poor'),
+(45, 'Joyce', 'satisfactory'),
+(46, 'Ndemange', 'fair'),
+(47, 'Clara', 'satisfactory'),
+(48, 'Derick', 'poor'),
 (49, 'George', 'satisfactory'),
-(50, 'Webster', 'satisfactory'),
-(51, 'Rabin', 'excellent');
+(50, 'Clerkson', 'satisfactory'),
+(51, 'Changilwa', 'excellent'),
+(52, 'Nadia', 'poor'),
+(53, 'Liz', 'satisfactory');
 
 -- --------------------------------------------------------
 
@@ -373,13 +379,13 @@ ALTER TABLE `product_level`
 -- AUTO_INCREMENT for table `product_view`
 --
 ALTER TABLE `product_view`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `UserRating`
 --
 ALTER TABLE `UserRating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `users`
