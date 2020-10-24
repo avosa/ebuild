@@ -42,6 +42,7 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql.init_app(app)
 
 
+# defining login
 def is_logged_in(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -53,6 +54,7 @@ def is_logged_in(f):
     return wrap
 
 
+# defining not loggedin
 def not_logged_in(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -64,6 +66,7 @@ def not_logged_in(f):
     return wrap
 
 
+# defining admin is logged in
 def is_admin_logged_in(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -75,6 +78,7 @@ def is_admin_logged_in(f):
     return wrap
 
 
+# defining admin is not logged in
 def not_admin_logged_in(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -93,6 +97,7 @@ def wrappers(func, *args, **kwargs):
     return wrapped
 
 
+# Defining content based filtering algorithm
 def content_based_filtering(product_id):
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM products WHERE id=%s",
@@ -133,6 +138,7 @@ def content_based_filtering(product_id):
         return ''
 
 
+# Default index
 @app.route('/')
 def index():
     form = OrderForm(request.form)
@@ -215,6 +221,7 @@ def login():
     return render_template('login.html', form=form)
 
 
+# Defining logout
 @app.route('/out')
 def logout():
     if 'uid' in session:
@@ -229,6 +236,7 @@ def logout():
     return redirect(url_for('login'))
 
 
+# Class regestration
 class RegisterForm(Form):
     name = StringField('', [validators.length(min=3, max=50)],
                        render_kw={'autofocus': True, 'placeholder': 'Full Name'})
@@ -242,6 +250,7 @@ class RegisterForm(Form):
                          'placeholder': 'Mobile'})
 
 
+# Rgister route
 @app.route('/register', methods=['GET', 'POST'])
 @not_logged_in
 def register():
@@ -270,11 +279,13 @@ def register():
     return render_template('register.html', form=form)
 
 
+# Message form
 class MessageForm(Form):  # Create Message Form
     body = StringField('', [validators.length(min=1)],
                        render_kw={'autofocus': True})
 
 
+# Orderform/inquiry form
 class OrderForm(Form):  # Create Order Form
     name = StringField('', [validators.length(min=1), validators.DataRequired()],
                        render_kw={'autofocus': True, 'placeholder': 'Enter Full Name'})
@@ -288,6 +299,7 @@ class OrderForm(Form):  # Create Order Form
                               render_kw={'placeholder': 'Enter city/town '})
 
 
+# House route
 @app.route('/house', methods=['GET', 'POST'])
 def house():
     form = OrderForm(request.form)
@@ -375,6 +387,7 @@ def house():
     return render_template('house.html', house=products, form=form)
 
 
+# Painting route
 @app.route('/painting', methods=['GET', 'POST'])
 def painting():
     form = OrderForm(request.form)
@@ -445,6 +458,7 @@ def painting():
     return render_template('painting.html', painting=products, form=form)
 
 
+# equipment route
 @app.route('/equipment', methods=['GET', 'POST'])
 def equipment():
     form = OrderForm(request.form)
@@ -514,6 +528,7 @@ def equipment():
     return render_template('equipment.html', equipment=products, form=form)
 
 
+# Logistics route
 @app.route('/logistics', methods=['GET', 'POST'])
 def logistics():
     form = OrderForm(request.form)
@@ -581,6 +596,7 @@ def logistics():
     return render_template('logistics.html', logistics=products, form=form)
 
 
+# Contact route
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
@@ -600,6 +616,7 @@ def contact():
         return render_template('contact_form.html', form=form)
 
 
+# Contact form class
 class ContactForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
     email = StringField("Email",  validators=[DataRequired(), Email()])
@@ -608,6 +625,7 @@ class ContactForm(FlaskForm):
     submit = SubmitField("Send Message")
 
 
+# Admin_login route
 @app.route('/admin_login', methods=['GET', 'POST'])
 @not_admin_logged_in
 def admin_login():
@@ -650,6 +668,7 @@ def admin_login():
     return render_template('pages/login.html')
 
 
+# Admin logout route
 @app.route('/admin_out')
 def admin_logout():
     if 'admin_logged_in' in session:
@@ -658,6 +677,7 @@ def admin_logout():
     return redirect(url_for('admin'))
 
 
+# Admin route
 @app.route('/admin')
 @is_admin_logged_in
 def admin():
@@ -665,11 +685,14 @@ def admin():
     num_rows = curso.execute("SELECT * FROM products")
     result = curso.fetchall()
     order_rows = curso.execute("SELECT * FROM orders")
+    admin_view_rating = curso.execute("SELECT * FROM UserRating")
+    data = curso.fetchall()
     users_rows = curso.execute("SELECT * FROM users")
-    return render_template('pages/index.html', result=result, row=num_rows, order_rows=order_rows,
+    return render_template('pages/index.html', result=result, data=data, admin_view_rating=admin_view_rating, row=num_rows, order_rows=order_rows,
                            users_rows=users_rows)
 
 
+# Orders route
 @app.route('/orders')
 @is_admin_logged_in
 def orders():
@@ -677,11 +700,29 @@ def orders():
     num_rows = curso.execute("SELECT * FROM products")
     order_rows = curso.execute("SELECT * FROM orders")
     result = curso.fetchall()
+    admin_view_rating = curso.execute("SELECT * FROM UserRating")
+    data = curso.fetchall()
     users_rows = curso.execute("SELECT * FROM users")
-    return render_template('pages/all_orders.html', result=result, row=num_rows, order_rows=order_rows,
+    return render_template('pages/all_orders.html', data=data, admin_view_rating=admin_view_rating,  result=result, row=num_rows, order_rows=order_rows,
                            users_rows=users_rows)
 
 
+# admin View_ratings route
+@app.route('/view_ratings')
+@is_admin_logged_in
+def view_ratings():
+    curso = mysql.connection.cursor()
+    num_rows = curso.execute("SELECT * FROM products")
+    order_rows = curso.execute("SELECT * FROM orders")
+    result = curso.fetchall()
+    admin_view_rating = curso.execute("SELECT * FROM UserRating")
+    data = curso.fetchall()
+    users_rows = curso.execute("SELECT * FROM users")
+    return render_template('pages/all_ratings.html', result=result,  data=data, admin_view_rating=admin_view_rating, row=num_rows, order_rows=order_rows,
+                           users_rows=users_rows)
+
+
+# admin manage users route
 @app.route('/users')
 @is_admin_logged_in
 def users():
@@ -690,10 +731,13 @@ def users():
     order_rows = curso.execute("SELECT * FROM orders")
     users_rows = curso.execute("SELECT * FROM users")
     result = curso.fetchall()
-    return render_template('pages/all_users.html', result=result, row=num_rows, order_rows=order_rows,
+    admin_view_rating = curso.execute("SELECT * FROM UserRating")
+    data = curso.fetchall()
+    return render_template('pages/all_users.html', admin_view_rating=admin_view_rating, data=data, result=result, row=num_rows, order_rows=order_rows,
                            users_rows=users_rows)
 
 
+# admin_add_product route
 @app.route('/admin_add_product', methods=['POST', 'GET'])
 @is_admin_logged_in
 def admin_add_product():
@@ -779,6 +823,7 @@ def admin_add_product():
         return render_template('pages/add_product.html')
 
 
+# admin edit_product route
 @app.route('/edit_product', methods=['POST', 'GET'])
 @is_admin_logged_in
 def edit_product():
@@ -880,6 +925,7 @@ def edit_product():
         return redirect(url_for('admin_login'))
 
 
+# rating route
 @app.route("/rating", methods=["GET", "POST"])
 @is_logged_in
 def rating():
@@ -896,6 +942,7 @@ def rating():
     return render_template('rating.html')
 
 
+# search route
 @app.route('/search', methods=['POST', 'GET'])
 def search():
     form = OrderForm(request.form)
@@ -916,6 +963,7 @@ def search():
         return render_template('search.html')
 
 
+# Profile route
 @app.route('/profile')
 @is_logged_in
 def profile():
@@ -941,6 +989,7 @@ def profile():
         return redirect(url_for('login'))
 
 
+# Update register form
 class UpdateRegisterForm(Form):
     name = StringField('Full Name', [validators.length(min=3, max=50)],
                        render_kw={'autofocus': True, 'placeholder': 'Full Name'})
@@ -952,6 +1001,7 @@ class UpdateRegisterForm(Form):
         min=10, max=15)], render_kw={'placeholder': 'Mobile'})
 
 
+# Settings route
 @app.route('/settings', methods=['POST', 'GET'])
 @is_logged_in
 def settings():
