@@ -855,7 +855,7 @@ def edit_product():
                                         # Commit cursor
                                         mysql.connection.commit()
                                 else:
-                                    flash('Product level not fund', 'danger')
+                                    flash('Product category not fund', 'danger')
                                     return redirect(url_for('admin_add_product'))
                                 flash('Product updated', 'success')
                                 return redirect(url_for('edit_product'))
@@ -863,11 +863,11 @@ def edit_product():
                                 flash('Data updated', 'success')
                                 return redirect(url_for('edit_product'))
                         else:
-                            flash('Pic not upload', 'danger')
+                            flash('Photo not uploaded', 'danger')
                             return render_template('pages/edit_product.html', product=product,
                                                    product_level=product_level)
                     else:
-                        flash('File not support', 'danger')
+                        flash('File not supported', 'danger')
                         return render_template('pages/edit_product.html', product=product,
                                                product_level=product_level)
                 else:
