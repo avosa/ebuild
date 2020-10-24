@@ -596,7 +596,7 @@ def contact():
             return render_template('contact_form.html', form=form, success=True)
         else:
             flash(
-                'Please check your credentials and all fields are required !!!', 'danger')
+                'Please check your credentials and fill in all fields!!!', 'danger')
             return redirect(url_for('contact'))
     else:
         return render_template('contact_form.html', form=form)
