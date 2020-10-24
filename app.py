@@ -339,7 +339,7 @@ def house():
 
         # Fetch ratings
         curso = mysql.connection.cursor()
-        curso.execute("SELECT * FROM UserRating")
+        curso.execute("SELECT * FROM UserRating ORDER BY RAND() LIMIT 4")
         data = curso.fetchall()
 
         x = content_based_filtering(product_id)
@@ -434,7 +434,7 @@ def painting():
 
         # Fetch ratings data
         curso = mysql.connection.cursor()
-        curso.execute("SELECT * FROM UserRating")
+        curso.execute("SELECT * FROM UserRating ORDER BY RAND() LIMIT 4")
         data = curso.fetchall()
 
         # Return to view_products.html
@@ -502,8 +502,9 @@ def equipment():
         curso.execute("SELECT * FROM products WHERE id=%s", (q,))
         products = curso.fetchall()
 
+        # rate user rating
         curso = mysql.connection.cursor()
-        curso.execute("SELECT * FROM UserRating")
+        curso.execute("SELECT * FROM UserRating ORDER BY RAND() LIMIT 4")
         data = curso.fetchall()
 
         # Return to view_products.html
@@ -567,8 +568,10 @@ def logistics():
         curso = mysql.connection.cursor()
         curso.execute("SELECT * FROM products WHERE id=%s", (q,))
         products = curso.fetchall()
+
+        # fetch user ratings
         curso = mysql.connection.cursor()
-        curso.execute("SELECT * FROM UserRating")
+        curso.execute("SELECT * FROM UserRating ORDER BY RAND() LIMIT 4")
         data = curso.fetchall()
 
         # Return to view_products.html
