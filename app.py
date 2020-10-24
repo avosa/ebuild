@@ -727,9 +727,9 @@ def view_ratings():
 @is_admin_logged_in
 def delete_rating(id):
     # Create cursor
-    curso = mysql.connection.cursor()
-    curso.execute("DELETE FROM UserRating WHERE id = %s", [id])
-    curso.close()
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM UserRating WHERE id = %s", [id])
+    cur.close()
 
     flash('Rating deleted successfully', 'success')
 
@@ -749,6 +749,20 @@ def users():
     data = curso.fetchall()
     return render_template('pages/all_users.html', admin_view_rating=admin_view_rating, data=data, result=result, row=num_rows, order_rows=order_rows,
                            users_rows=users_rows)
+
+
+# Delete users
+@app.route('/delete_users/<string:id>', methods=['POST'])
+@is_admin_logged_in
+def delete_users(id):
+    # Create cursor
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM users WHERE id = %s", [id])
+    cur.close()
+
+    flash('User deleted successfully', 'success')
+
+    return redirect(url_for('users'))
 
 
 # admin_add_product route
