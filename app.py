@@ -723,19 +723,20 @@ def view_ratings():
 
 
 # Delete rating
-@app.route('/delete_rating/<string:id>', methods=['POST'])
+@app.route('/delete_rating/<int:id>', methods=['POST'])
 @is_admin_logged_in
 def delete_rating(id):
-    # Create cursor
-    cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM UserRating WHERE id = %s", (id,))
-    data = cur.fetchone()
-    mysql.connection.commit()
-    cur.close()
+    if request.method == 'POST':
+        # Create cursor
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM UserRating WHERE id = %s", [id])
+        # data = cur.fetchone()
+        mysql.connection.commit()
+        cur.close()
 
-    flash('Rating deleted successfully', 'success')
+        flash('Rating deleted successfully', 'success')
 
-    return redirect(url_for('view_ratings', data=data))
+        return redirect(url_for('view_ratings'))
 
 
 # admin manage users route
