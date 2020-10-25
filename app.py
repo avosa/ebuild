@@ -728,13 +728,14 @@ def view_ratings():
 def delete_rating(id):
     # Create cursor
     cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM UserRating WHERE id = %s", [id])
+    cur.execute("DELETE FROM UserRating WHERE id = %s", (id,))
+    data = cur.fetchone()
     mysql.connection.commit()
     cur.close()
 
     flash('Rating deleted successfully', 'success')
 
-    return redirect(url_for('view_ratings'))
+    return redirect(url_for('view_ratings', data=data))
 
 
 # admin manage users route
