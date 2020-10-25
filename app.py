@@ -729,6 +729,7 @@ def delete_rating(id):
     # Create cursor
     cur = mysql.connection.cursor()
     cur.execute("DELETE FROM UserRating WHERE id = %s", [id])
+    mysql.connection.commit()
     cur.close()
 
     flash('Rating deleted successfully', 'success')
@@ -756,13 +757,15 @@ def users():
 @is_admin_logged_in
 def delete_users(id):
     # Create cursor
-    cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM users WHERE id = %s", [id])
-    cur.close()
+    if request.method == 'POST':
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM users WHERE id = %s", [id])
+        mysql.connection.commit()
+        cur.close()
 
-    flash('User deleted successfully', 'success')
+        flash('User deleted successfully', 'success')
 
-    return redirect(url_for('users'))
+        return redirect(url_for('users'))
 
 
 # admin_add_product route
