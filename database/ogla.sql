@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2020 at 11:53 AM
+-- Generation Time: Oct 26, 2020 at 09:44 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.3.19
 
@@ -77,7 +77,9 @@ INSERT INTO `orders` (`id`, `uid`, `ofname`, `pid`, `quantity`, `oplace`, `order
 (35, 20, 'Ogla Biwott', 45, 'Other', 'Kilifi', 'Can I have this though customizable?', '0790123800', 'no', '2020-10-21 16:39:37', '2020-10-28'),
 (36, 24, 'Natasha Lonah', 23, '2', 'Malindi', 'How much can I have this best price', '0720123456', 'no', '2020-10-21 16:53:33', '2020-10-28'),
 (37, 24, 'Natasha Lonah', 44, 'Inquiry', 'Kisii', 'Is this available in Kisii?', '0717678794', 'no', '2020-10-21 17:29:18', '2020-10-28'),
-(38, 25, 'Einz Hescky', 24, 'Inquiry', 'Dodoma', 'Do you offer this service in Dodoma?', '0799678794', 'no', '2020-10-21 19:32:24', '2020-10-28');
+(38, 25, 'Einz Hescky', 24, 'Inquiry', 'Dodoma', 'Do you offer this service in Dodoma?', '0799678794', 'no', '2020-10-21 19:32:24', '2020-10-28'),
+(39, 27, 'Moreen Ntalami', 22, '1', 'Nakuru', 'How much when I customize?', '+254717678794', 'no', '2020-10-25 09:51:47', '2020-11-01'),
+(41, 20, 'Ogla Biwott', 44, 'Inquiry', 'Mombasa ', 'i want some cool stuff for sure', '+254717678794', 'no', '2020-10-26 16:28:36', '2020-11-02');
 
 -- --------------------------------------------------------
 
@@ -103,23 +105,24 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `pName`, `price`, `description`, `available`, `category`, `item`, `pCode`, `picture`, `date`) VALUES
-(22, 'Bungalow', 11000000, 'Available in Mombasa, Nairobi and Nakuru', 1000, 'house', 'houses', '1-00w', 'h6.png', '2020-10-11 04:14:54'),
-(23, 'Mwahu Bungalows, Nairobi', 5000000, 'Available in Mombasa, Nairobi and Nakuru', 10000, 'house', 'houses', '1-00Q', 'h4.png', '2020-10-11 04:17:38'),
-(24, 'Nairobi House Painting services', 2000, 'Available in Nairobi County', 300, 'painting', 'painting', '1-000', 'p2.png', '2020-10-11 05:28:04'),
+(22, 'Makuti, Kilifi', 5000000, 'Available in Bofa', 20, 'house', 'houses', '1-00w', 'h5.png', '2020-10-11 04:14:54'),
+(23, 'Mwahu Bungalows, Malindi', 5000000, 'Available in Malindi, Kilifi, Mtwapa and Mombasa', 10000, 'house', 'houses', '1-00Q', 'h4.png', '2020-10-11 04:17:38'),
+(24, 'Bofa House Painting services, Kilifi', 2000, 'Available in Mtwapa', 300, 'painting', 'painting', '1-000', 'p2.png', '2020-10-11 05:28:04'),
 (25, 'Cement Additives', 500, 'Boosts performance of cement', 10000, 'equipment', 'cement', 'i-pppp', 'e6.png', '2020-10-11 09:15:11'),
-(26, 'Simba Cement', 850, 'Best Cement ever in East Africa and Central Africa', 10000, 'equipment', 'cement', '0-ppp1', 'e1.png', '2020-10-11 09:16:31'),
-(28, 'Track for carrying goods bought', 350000, 'The only track youll get for such price', 1000, 'equipment', 'Track', '0-6789', 'l8.png', '2020-10-11 09:35:57'),
-(29, 'Cement mixer', 250000, 'Just wow', 10000, 'equipment', 'mixer', '0-ijyk', 'e5.png', '2020-10-11 09:37:42'),
-(30, 'Nairobi ample space for all your building', 100000, 'We offer better services and prices ', 1000, 'logistics', 'logistics', '0-6789', 'l1.png', '2020-10-11 09:40:11'),
-(31, 'Land', 670000, 'We offer better services and prices ', 10000, 'logistics', 'land', '0-567', 'l4.png', '2020-10-11 09:41:39'),
+(26, 'Simba Cement', 850, 'Trusted cement to build with in coast region!', 10000, 'equipment', 'cement', '0-ppp1', 'e1.png', '2020-10-11 09:16:31'),
+(28, 'Track for carrying goods bought', 350000, 'The only track services youll get for such price', 1000, 'equipment', 'Track', '0-6789', 'l8.png', '2020-10-11 09:35:57'),
+(29, 'Cement mixer', 250000, 'Save time making concrete', 10000, 'equipment', 'mixer', '0-ijyk', 'e5.png', '2020-10-11 09:37:42'),
+(30, 'Mtwapa ample space for all your building', 100000, 'We offer better services and prices ', 1000, 'logistics', 'logistics', '0-6789', 'l1.png', '2020-10-11 09:40:11'),
+(31, 'Land', 1000000, 'We offer better services and prices ', 10000, 'logistics', 'land', '0-567', 'l4.png', '2020-10-11 09:41:39'),
 (32, 'Urban ', 350000, 'We offer better services and prices ', 1000, 'logistics', 'log', '0-6789', 'l7.png', '2020-10-11 09:42:47'),
 (33, 'Land', 350000, 'We offer better services and prices ', 10000, 'logistics', 'painting', '74900', 'l1.png', '2020-10-11 09:43:36'),
-(34, 'City painting', 8000, 'We offer better services and prices ', 1000, 'painting', 'painting', '1-00w', 'p4.png', '2020-10-11 09:45:03'),
-(35, 'painting', 67890, 'We offer better services and prices ', 1000, 'painting', 'painting', '439361', 'p6.png', '2020-10-11 09:45:53'),
-(36, 'painting', 8000, 'We offer better services and prices ', 10000, 'painting', 'painting', '0-ijyk', 'p5.png', '2020-10-11 09:46:46'),
-(37, 'painting', 8000, 'We offer good service', 10000, 'painting', 'painting', '548089', 'p7.png', '2020-10-11 09:51:05'),
-(44, 'Flat', 20000000, 'Flat in Nakuru ', 10000, 'house', 'houses', '0-1234', 'h7.png', '2020-10-17 23:54:33'),
-(45, 'Palace Square and Co Builds', 3500000, 'Want a palace, we will construct one for you!', 10000, 'house', 'houses', '1-000', 'h2.png', '2020-10-17 23:56:09');
+(34, 'Pro painting', 8000, 'We offer better services and prices ', 1000, 'painting', 'painting', '1-00w', 'p4.png', '2020-10-11 09:45:03'),
+(35, 'Stylish painting', 67890, 'We offer better services and prices ', 1000, 'painting', 'painting', '439361', 'p6.png', '2020-10-11 09:45:53'),
+(36, 'Fancy painting', 8000, 'We offer better services and prices ', 10000, 'painting', 'painting', '0-ijyk', 'p5.png', '2020-10-11 09:46:46'),
+(37, 'Colorful painting', 8000, 'We offer good service', 10000, 'painting', 'painting', '548089', 'p7.png', '2020-10-11 09:51:05'),
+(44, 'Flat', 20000000, 'Flat in Mtwapa', 10000, 'house', 'houses', '0-1234', 'h7.png', '2020-10-17 23:54:33'),
+(45, 'Palace Square and Co Builds', 3500000, 'Want a palace in the coast region?Well, we will construct one for you!', 10000, 'house', 'houses', '1-000', 'h2.png', '2020-10-17 23:56:09'),
+(46, 'Fancy Apartments in Mtwapa', 5000000, 'A cool place to enjoy with fam', 100, 'house', 'houses', '1-000', 'h4.png', '2020-10-26 18:40:58');
 
 -- --------------------------------------------------------
 
@@ -167,11 +170,12 @@ INSERT INTO `product_level` (`id`, `product_id`, `v_shape`, `polo`, `clean_text`
 (25, 25, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
 (24, 24, 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
 (23, 23, 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(22, 22, 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(22, 22, 'yes', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
 (42, 42, 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
 (43, 43, 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
 (44, 44, 'no', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
-(45, 45, 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no');
+(45, 45, 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no'),
+(46, 46, 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -193,7 +197,7 @@ CREATE TABLE `product_view` (
 INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (32, 20, 41, '2020-10-11 13:18:51'),
 (31, 19, 40, '2020-10-11 13:10:40'),
-(30, 20, 22, '2020-10-11 13:03:04'),
+(30, 20, 22, '2020-10-26 20:16:36'),
 (29, 20, 43, '2020-10-11 13:17:39'),
 (28, 20, 38, '2020-10-11 10:51:15'),
 (27, 20, 39, '2020-10-11 10:51:10'),
@@ -224,8 +228,8 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (49, 23, 25, '2020-10-20 10:08:12'),
 (50, 23, 29, '2020-10-20 10:11:49'),
 (51, 23, 44, '2020-10-21 16:36:54'),
-(52, 20, 45, '2020-10-21 16:51:53'),
-(53, 20, 23, '2020-10-21 16:51:57'),
+(52, 20, 45, '2020-10-26 20:43:34'),
+(53, 20, 23, '2020-10-26 20:20:20'),
 (54, 24, 23, '2020-10-21 17:28:38'),
 (55, 24, 22, '2020-10-21 17:28:36'),
 (56, 24, 45, '2020-10-21 16:58:31'),
@@ -234,7 +238,21 @@ INSERT INTO `product_view` (`id`, `user_id`, `product_id`, `date`) VALUES
 (59, 16, 26, '2020-10-24 09:48:12'),
 (60, 16, 29, '2020-10-24 09:53:19'),
 (61, 16, 33, '2020-10-24 09:27:55'),
-(62, 16, 28, '2020-10-24 09:32:13');
+(62, 16, 28, '2020-10-24 09:32:13'),
+(63, 26, 22, '2020-10-25 00:30:26'),
+(64, 27, 45, '2020-10-25 00:31:29'),
+(65, 27, 22, '2020-10-25 09:51:12'),
+(66, 27, 44, '2020-10-25 07:14:51'),
+(67, 27, 23, '2020-10-25 07:11:37'),
+(68, 27, 26, '2020-10-25 07:14:06'),
+(69, 27, 30, '2020-10-25 00:38:25'),
+(70, 27, 31, '2020-10-25 07:11:49'),
+(71, 27, 32, '2020-10-25 07:12:17'),
+(72, 20, 44, '2020-10-26 20:20:07'),
+(73, 20, 30, '2020-10-26 20:43:54'),
+(74, 20, 25, '2020-10-26 18:38:49'),
+(75, 20, 46, '2020-10-26 20:21:54'),
+(76, 20, 26, '2020-10-26 20:21:34');
 
 -- --------------------------------------------------------
 
@@ -268,7 +286,9 @@ INSERT INTO `UserRating` (`id`, `firstName`, `ratingMessage`) VALUES
 (50, 'Clerkson', 'satisfactory'),
 (51, 'Changilwa', 'excellent'),
 (52, 'Nadia', 'poor'),
-(53, 'Liz', 'satisfactory');
+(53, 'Liz', 'satisfactory'),
+(54, 'phillip', 'fair'),
+(55, 'ntalami', 'excellent');
 
 -- --------------------------------------------------------
 
@@ -293,13 +313,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `mobile`, `reg_time`, `online`, `activation`) VALUES
-(20, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$z7w9uYgwfbok1kGx$aabqsubMn8DGJENHWXDIaKjGqqgiQ53xbXx8kNbecoD', '+254790123879', '2020-10-11 10:50:27', '0', 'yes'),
+(20, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$z7w9uYgwfbok1kGx$aabqsubMn8DGJENHWXDIaKjGqqgiQ53xbXx8kNbecoD', '+254790123879', '2020-10-11 10:50:27', '1', 'yes'),
 (23, 'Nadia Mukami', 'nadia@gmail.com', 'nadia', '$5$rounds=535000$Pw8eMa.UHsYfOiUL$VjmxG01lfVyn1rwa4UNq/.7uhnH4I0tfyKdrnUbnilC', '+254717678777', '2020-10-20 09:48:05', '0', 'yes'),
-(16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '0', 'yes'),
+(16, 'Webster Avosa', 'websterb17@gmail.com', 'webster', '$5$rounds=535000$xzS8BmN0..HRuB3b$BuZadi6u.YWHUrKu3GOw75Z0LE8RNgvo8WC47HfPsP0', '+254717678794', '2020-10-11 00:20:51', '1', 'yes'),
 (21, 'Ogla Biwott', 'oglabiwott21@gmail.com', 'ogla', '$5$rounds=535000$PFdWXpc1MEW9trvq$J4xqsWIKh4IubkgoWUoiWC6kuXMtriINfpJ.clW7JND', '+254717678794', '2020-10-11 13:15:14', '0', 'yes'),
 (22, 'Vincent Bosire', 'vincent@gmail.com', 'vinny', '$5$rounds=535000$KRRRK.XVvthgzGz6$RObl0zRWeXFbD/UGVPX7DxyoeK5Zf52Docr7JppE714', '0717678794', '2020-10-18 13:20:45', '0', 'yes'),
 (24, 'Natasha Lonah', 'natasha@gmail.com', 'natasha', '$5$rounds=535000$gAqzLSOyTS.g9rDJ$/cNK6EVkdsij3BxmzhVRSlgVlAoQzi6g29Md/cETQx.', '0720123456', '2020-10-21 16:52:39', '0', 'yes'),
-(25, 'Einz Hescky', 'einzhescky@gmail.com', 'einz', '$5$rounds=535000$T3qZFv1AbrhLx81H$fHQSOVkYmjJnJeZOFV9WQKU/extHYO.sp1oPsvSAMl9', '0717678794', '2020-10-21 19:31:17', '0', 'yes');
+(25, 'Einz Hescky', 'einzhescky@gmail.com', 'einz', '$5$rounds=535000$T3qZFv1AbrhLx81H$fHQSOVkYmjJnJeZOFV9WQKU/extHYO.sp1oPsvSAMl9', '0717678794', '2020-10-21 19:31:17', '0', 'yes'),
+(26, 'Phillip', 'phillip@gmail.com', 'phillip', '$5$rounds=535000$rtmpJam/xS8JmgM2$rz40RtbZrdTq3Cojy3TQ0kbb1peerL67lMLlB5/QsR5', '+254717678794', '2020-10-25 00:30:11', '0', 'yes'),
+(27, 'Moreen Ntalami', 'ntalami@gmail.com', 'ntalami', '$5$rounds=535000$lCRWtNHBHezonYm5$/BWre7B14enIf6u3LxdY0GsF23iMi9styhZCy4WD836', '0717678794', '2020-10-25 00:31:17', '1', 'yes');
 
 --
 -- Indexes for dumped tables
@@ -361,37 +383,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `product_level`
 --
 ALTER TABLE `product_level`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `product_view`
 --
 ALTER TABLE `product_view`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `UserRating`
 --
 ALTER TABLE `UserRating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

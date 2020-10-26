@@ -757,13 +757,13 @@ def users():
 
 
 # Delete users
-@app.route('/delete_users/<string:id>', methods=['POST'])
+@app.route('/delete_users/<int:id>', methods=['POST'])
 @is_admin_logged_in
 def delete_users(id):
     # Create cursor
     if request.method == 'POST':
         cur = mysql.connection.cursor()
-        cur.execute("DELETE FROM users WHERE id = %s", [id])
+        cur.execute("DELETE FROM users WHERE id = %s", (id,))
         mysql.connection.commit()
         cur.close()
 

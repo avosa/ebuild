@@ -29,7 +29,7 @@
                         </div>
                         <div class="card-body">
                             <h3 class="card-title">{{ product.pName}}</h3>
-                            <h4>Ksh. {{ product.price}}</h4>
+                            <h4>As from Ksh. {{ product.price}}</h4>
                             <p class="card-text">{{ product.description}}</p>
                             <a href="/{{product.category}}?order={{product.id}}" class="btn btn-success" style="background-color: rgb(236, 54, 236);">Reach Expert</a>
                             <!-- <a href="/{{product.category}}?order={{product.id}}" class="btn btn-success" style="background-color: rgb(236, 54, 236);">Reach Expert</a> -->
@@ -48,7 +48,7 @@
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">{{ product.pName}}</h3>
-                        <h4>Ksh. {{ product.price}}</h4>
+                        <h6><small style="font-size: medium; font-family:Verdana, Geneva, Tahoma, sans-serif;">As from</small> <span>Ksh. {{product.price}}</span></h6>
                         <a href="rating" class="btn btn-success" style="background-color: rgb(236, 54, 236);">Rate</a>
                     </div>
                 </div>

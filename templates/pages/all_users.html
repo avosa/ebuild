@@ -135,7 +135,7 @@
                                         <th>Mobile</th>
                                         <th>Registration Time</th>
                                         <th>Online</th>
-                                        <th>Manage User</th>
+                                        <!-- <th>Manage User</th> -->
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -148,12 +148,12 @@
                                         <td>{{product.mobile}}</td>
                                         <td>{{product.reg_time}}</td>
                                         <td>{{product.online}}</td>
-                                        <td>
+                                        <!-- <td>
                                             <form action="{{ url_for('delete_users', id=product.id) }}" method="POST" >
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="submit" value="Delete" class="btn btn-danger">
                                               </form>
-                                        </td>
+                                        </td> -->
                                     </tr>
                                     {% endfor%}
                                     </tbody>

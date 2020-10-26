@@ -22,10 +22,10 @@
     </div>
 </div>
 {% else %}
-<p class="h5 m-4">If you have additional questions, feel free to send us an email.</p>
+<p>If you have additional questions, feel free to send us an email.</p>
 <hr>
 <div style="float: right; color:rgb(236, 54, 236); padding-bottom: 20px;">
-    Chat with us on <a href="https://wa.me/254790358339"><big> <img style="height: 50px; width: 50px;" src="static/image/whatsapp.png" alt="WhatsApp"> </big></a> 
+ <a href="https://wa.me/254790358339"><big>Chat with us on <img style="height: 50px; width: 50px;" src="static/image/whatsapp.png" alt="WhatsApp"> </big></a> 
 </div>
 <br>
 
@@ -35,12 +35,12 @@
 <form action="" method="POST" novalidate>
     {{ form.hidden_tag() }}
     <div class="messages"></div>
-    <div class="controls">
+    <div class="controls" style="color: yellowgreen">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="form_name">Name</label>
-                    <input id="form_name" type="text" name="name" class="form-control"
+                    <input style="background-color: blanchedalmond;" id="form_name" type="text" name="name" class="form-control"
                         placeholder="Enter full name" required="required" data-error="Name is required.">
                     <div class="help-block with-errors"></div>
                 </div>
@@ -48,7 +48,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="form_subject">Subject</label>
-                    <input id="form_subject" type="text" name="subject" class="form-control"
+                    <input style="background-color: blanchedalmond;" id="form_subject" type="text" name="subject" class="form-control"
                         placeholder="Enter subject" required="required"
                         data-error="Subject is required.">
                     <div class="help-block with-errors"></div>
@@ -59,7 +59,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="form_email">Email</label>
-                    <input id="form_email" type="email" name="email" class="form-control"
+                    <input style="background-color: blanchedalmond;" id="form_email" type="email" name="email" class="form-control"
                         placeholder="Enter your email" required="required"
                         data-error="Valid email is required.">
                     <div class="help-block with-errors"></div>
@@ -70,7 +70,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="form_message">Message</label>
-                    <textarea id="form_message" name="message" class="form-control" placeholder="Enter message"
+                    <textarea style="background-color: blanchedalmond;" id="form_message" name="message" class="form-control" placeholder="Enter message"
                         rows="4" required="required" data-error="Please, leave us a message."></textarea>
                     <div class="help-block with-errors"></div>
                 </div>

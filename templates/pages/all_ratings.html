@@ -130,7 +130,7 @@
                             <th>Customer Id</th>
                             <th>Client Name</th>
                             <th>Rating</th>
-                            <th>DELETE</th>
+                            <!-- <th>DELETE</th> -->
                         </tr>
                         </thead>
                         <tbody>
@@ -140,12 +140,12 @@
                             <td>{{ item.id }}</td>
                             <td>{{ item.firstName.capitalize() }}</td>
                             <td>{{ item.ratingMessage.capitalize()}}</td>
-                            <td>
+                            <!-- <td>
                                 <form action="{{ url_for('delete_rating', id=item.id) }}" method="POST" >
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="submit" value="Delete" class="btn btn-danger">
                                   </form>
-                            </td>
+                            </td> -->
                         </tr>
                         {% endfor%}
                         </tbody>
