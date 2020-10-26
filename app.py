@@ -723,7 +723,7 @@ def view_ratings():
 
 
 # Delete rating
-@app.route('/delete_rating/<int:id>', methods=['POST'])
+@app.route('/delete_rating/<string:id>', methods=['POST'])
 @is_admin_logged_in
 def delete_rating(id):
     if request.method == 'POST':
@@ -733,6 +733,8 @@ def delete_rating(id):
         # data = cur.fetchone()
         mysql.connection.commit()
         cur.close()
+
+        print(id)
 
         flash('Rating deleted successfully', 'success')
 
