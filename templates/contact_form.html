@@ -1,11 +1,13 @@
 {% extends 'layout.html' %}
-
 {% block body %}
+
+<!--Div where the WhatsApp will be rendered-->   
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header" style="color: blue;">Get in touch</h1>
         {% include 'includes/_flashmsg.html' %}
     </div>
+    
     <!-- /.col-lg-12 -->
 </div>
 {% if success %}
@@ -22,7 +24,14 @@
 {% else %}
 <p class="h5 m-4">If you have additional questions, feel free to send us an email.</p>
 <hr>
+<div style="float: right; color:rgb(236, 54, 236); padding-bottom: 20px;">
+    You can also contact us on <a href="https://wa.me/254790358339"><big> <img style="height: 50px; width: 50px;" src="static/image/whatsapp.png" alt="WhatsApp"> </big></a> 
+</div>
 <br>
+
+<hr>
+<br>
+<div style="background-color: white;">
 <form action="" method="POST" novalidate>
     {{ form.hidden_tag() }}
     <div class="messages"></div>
@@ -71,7 +80,10 @@
             </div>
         </div>
     </div>
+</div>
 </form>
+
+
 {% endif %}
 
 {% endblock %}
