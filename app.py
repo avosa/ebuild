@@ -14,7 +14,7 @@ from wtforms.validators import DataRequired, Email
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
-app.config['UPLOADED_PHOTOS_DEST'] = 'static/image/product'
+app.config['UPLOADED_PHOTOS_DEST'] = 'ogla/static/image/product'
 photos = UploadSet('photos', IMAGES)
 configure_uploads(app, photos)
 
